@@ -10,7 +10,7 @@ book:
   author:
     - Alexandra Kakadiaris (ak5087)
     - Anouck Rietvald (ar4633)
-  repo-url: https://github.com/akakadiaris/GlobalHealthExpenditure.git
+  repo-url: https://github.com/akakadiaris/GlobalHealthExpenditure
   date: today
   page-footer:
     right: |
