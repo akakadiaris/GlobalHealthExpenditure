@@ -1,4 +1,7 @@
 # Data
+We have chosen to delve into the extensive dataset provided by the Global Burden of Disease Health Financing Collaborator Network. This dataset encapsulates retrospective health spending estimates spanning the years 1995 to 2019 for 204 countries and territories, with a forward-looking projection extending from 2020 to 2050. The comprehensive nature of this dataset, encompassing various facets of health spending, offers a rich terrain for exploration and insight generation.
+
+The dataset's foundation lies in retrospective health spending estimates, meticulously compiled by the Global Burden of Disease Health Financing Collaborator Network. It encompasses critical components such as total health spending, health spending disaggregated by source into government, out-of-pocket, and prepaid private financing categories, and the vital metric of development assistance for health (DAH). The robustness of the dataset is underpinned by primary data sources, notably the World Health Organization's Global Health Expenditure Database (GHED) for domestic health spending, and a diverse set of sources for DAH, including program reports, budget data, national estimates, and National Health Accounts (NHAs).
 
 ## Description
 
