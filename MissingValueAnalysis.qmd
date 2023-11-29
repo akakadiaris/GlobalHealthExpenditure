@@ -1,0 +1,41 @@
+---
+title: "Missing Value Analysis"
+editor: visual
+---
+
+```{r}
+library(readr)
+
+data <- read_csv("IHME_HEALTH_SPENDING_1995_2019_Y2023M01D24.CSV", show_col_types = FALSE)
+```
+
+```{r}
+# Check for missing data
+
+# Check for missing values
+missing_values <- sapply(data, function(x) sum(is.na(x)))
+print(missing_values)
+# Create a data frame for plotting
+plot_data <- data.frame(column = names(missing_values), missing_count = missing_values)
+
+# Plot using ggplot2
+library(ggplot2)
+
+ggplot(plot_data, aes(x = column, y = missing_count)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "Number of Missing Values in Each Column", x = "Column", y = "Missing Count") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Find rows without missing values
+complete_rows <- data[complete.cases(data), ]
+
+# Show the rows with missing values
+rows_with_missing <- data[!complete.cases(data), ]
+
+# Print or inspect the rows with missing values
+print(rows_with_missing)
+```
+
