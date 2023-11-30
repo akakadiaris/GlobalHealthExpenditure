@@ -1,37 +1,37 @@
 # Introduction
 
-The allocation and trends in health spending wield profound implications for the well-being of nations. This paper ventures into the realm of visualizing and comprehending the dynamics of Global Health Spending, a subject of paramount importance, yet often obscured in the complexity of its vast dataset. The decision to delve into this topic is rooted in the imperative to unravel patterns, disparities, and trends that shape how countries invest in the health and well-being of their populations.
+The allocation and trends in health spending wield profound implications for the well-being of nations. Timely and accurate information on health expenditure is crucial for preparing and responding to health emergencies, including pandemics. It enables countries and international organizations to allocate resources strategically, strengthen healthcare infrastructure, and enhance preparedness measures. This information is also vital for assessing the efficiency and effectiveness of health services, identifying areas for improvement, and achieving better health outcomes. Finally, estimates of future health spending can be beneficial for policymakers and planners and can identify financing gaps. 
 
-Global Health Spending refers to the financial resources dedicated to healthcare on a worldwide scale. It encapsulates a myriad of components, from government contributions and out-of-pocket expenses to development assistance and prepaid private financing. This comprehensive perspective on health spending transcends individual borders, offering insights into the global landscape of healthcare economics.
+This project delves into the realm of visualizing and comprehending the dynamics of Global Health Spending—a subject of paramount importance often obscured in the complexity of its vast dataset. The decision to explore this topic is rooted in the imperative to unravel patterns, disparities, and trends shaping how countries invest in the health and well-being of their populations. To do so, we leverage two comprehensive datasets containing health expenditure data for 204 countries from 1995 to 2019, and 2020 to 2050, produced by the Global Burden of Disease Health Financing Collaborator Network. These datasets encompasses a myriad of components, from government contributions and out-of-pocket expenses to development assistance and prepaid private financing. This holistic perspective on health spending transcends individual borders, offering insights into the global landscape of healthcare economics. 
 
-The questions propelling this inquiry are as diverse as the facets of health spending itself. Seeking to bring clarity to the complexity, this research aims to address critical queries that traverse the temporal, regional, and categorical dimensions of health expenditure.
+The questions propelling this inquiry are as diverse as the facets of health spending itself. Seeking to bring clarity to this complexity, this research aims to address critical queries that traverse the temporal, geographical, financial source and future dimensions of health expenditure. Therefore, we will focus on the following four themes: Trends in Global Health Spending Over Time, Geographic Disparities, Health Spending by Financing Source, and Global Health Spending Patterns 2020 to 2050. 
 
-#### Trends in Global Health Spending Over Time:
+**Trends in Global Health Spending Over Time**
 
-The first trajectory of inquiry delves into the temporal evolution of global health spending, exploring changes from 1995 to 2029. Questions arise: Are there discernible trends or patterns in health spending over this span of time? How has total global health spending transformed, and what insights can be gleaned from the observed trends?
+The first trajectory of inquiry delves into the temporal evolution of global health spending, exploring changes from 1995 to 2019. Questions arise: Are there discernible trends or patterns in health spending over this span of time? How has total global health spending transformed, and what insights can be gleaned from the observed trends? Another avenue we explore is investigating the impact of major global events (e.g., pandemics) on health spending across different regions. Can patterns or anomalies be identified in health spending during significant events, providing valuable insights into global healthcare resilience?
 
-#### Regional Disparities:
+**Geographic Disparities**
 
-A second avenue of exploration navigates the disparities in health spending across diverse regions or continents. This prompts an examination of variations: Do certain regions consistently outpace others in health spending? Are there observable disparities that unveil regional predilections in healthcare investment?
+A second avenue of exploration navigates the disparities in health spending across diverse regions or continents. This prompts an examination of variations: Do certain regions consistently outpace others in health spending? Are there observable disparities that unveil regional predilections in healthcare investment? How do low-income, middle-income, and high-income countries compare in terms of health spending trends over time?
 
-#### Health Spending by Financing Source:
+**Health Spending by Financing Source**
 
-Moving further, the research scrutinizes the sources fueling health spending. How much comes from government allocations, out-of-pocket expenses, and prepaid private sources? How have these proportions changed globally over time and within specific regions, painting a nuanced picture of the financial architecture sustaining healthcare systems?
+Moving further, the research scrutinizes the sources fueling health spending. How much comes from government allocations, out-of-pocket expenses, and prepaid private sources? How have these proportions changed globally over time? We aim to paint a nuanced picture of the financial architecture sustaining healthcare systems.
 
-#### Comparison of Health Spending Categories:
 
-The intricacies of government spending on health, in comparison to out-of-pocket expenses and prepaid private contributions, form the nucleus of the next inquiry. Are there significant disparities in the contributions of these categories across countries, and how do these variances impact healthcare outcomes?
+**Global Health Spending Patterns 2020 to 2050**
 
-#### Per Capita Health Spending:
+Lastly, we focus on the future. The data from the Global Burden of Disease Health Financing Collaborator Network projected health spending estimates for 2020 to 2050 for 204 countries and territories. We analyze total health spending from the perspective of the previously discussed three themes, spending patterns over time, geographic disparities, along with disaggregated spending by source (government, out-of-pocket, and prepaid private). We aim to compare past trends with predicted trends to gain valuable insights based on the previously discussed themes. 
 
-The examination then turns to per capita health spending, assessing variations across countries and regions. Are there nations with notably high or low per capita spending, and what factors contribute to these disparities?
+*Comparing Over Time Patterns*: How do total health spending patterns evolve from 1995 to 2050, considering both historical data and future predictions? What insights can be gained by visually comparing past and predicted health spending patterns through a line chart spanning the years 1995-2050?
 
-#### Health Spending as a Percentage of GDP:
+*Comparing Geographic Disparities*: How do total health spending patterns vary geographically in 1995, 2019, and the projected year 2050? Are there notable changes in geographic disparities over time, and how do they align with global health trends? In what regions do significant disparities persist or emerge, and how might these impact future health outcomes?
 
-A crucial perspective is offered by analyzing the percentage of a country's GDP allocated to health. Are there nations that significantly deviate from the norm in their dedication to health expenditure, and how does this percentage correlate with overall health outcomes? Can patterns be discerned where countries achieve better health outcomes despite lower spending, or vice versa?
+*Comparing Health Spending by Financing Source*: How do government, out-of-pocket, and prepaid private health spending categories compare over time, integrating both historical and future perspectives? What shifts in the proportions of financing sources are anticipated from 1995 to 2050, and how might they influence overall health expenditure?
 
-#### Impact of Events (e.g., Pandemics) on Health Spending:
+*Integrated Comparison*: Time, Geography, and Total Health Spending: How does the integrated comparison of health spending trends over time, geographic regions, and financing sources contribute to a holistic understanding of global health economics?
 
-Finally, the research investigates the impact of major global events, such as pandemics, on health spending across different regions. Can patterns or anomalies be identified in health spending during significant events, providing valuable insights into global healthcare resilience?
+**Conclusion**
 
-The intent is to not only unveil patterns and disparities but to contribute substantively to the discourse surrounding healthcare economics. Through a nuanced exploration of the questions posed, this research seeks to bridge the gap between data and understanding, fostering a comprehensive view of the factors influencing the investment in equitable and sustainable health systems worldwide.
+In summary, this research endeavors to narrow the divide between raw data and nuanced comprehension, cultivating a holistic perspective on the determinants shaping investments in inclusive and enduring health systems on a global scale. Our intent is to pinpoint critical areas where the health economy may exhibit vulnerabilities in the face of potential forthcoming global challenges. Emphasizing the significance of meticulously tracking health expenditure, we illuminate anticipated challenges on the horizon.
+

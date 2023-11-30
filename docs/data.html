@@ -142,8 +142,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a></li>
-  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</a></li>
+  <li><a href="#technical-description" id="toc-technical-description" class="nav-link active" data-scroll-target="#technical-description"><span class="header-section-number">2.1</span> Technical Description</a></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research Plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/akakadiaris/GlobalHealthExpenditure/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/akakadiaris/GlobalHealthExpenditure/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -167,13 +168,88 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>We have chosen to delve into the extensive dataset provided by the Global Burden of Disease Health Financing Collaborator Network. This dataset encapsulates retrospective health spending estimates spanning the years 1995 to 2019 for 204 countries and territories, with a forward-looking projection extending from 2020 to 2050. The comprehensive nature of this dataset, encompassing various facets of health spending, offers a rich terrain for exploration and insight generation.</p>
-<p>The dataset’s foundation lies in retrospective health spending estimates, meticulously compiled by the Global Burden of Disease Health Financing Collaborator Network. It encompasses critical components such as total health spending, health spending disaggregated by source into government, out-of-pocket, and prepaid private financing categories, and the vital metric of development assistance for health (DAH). The robustness of the dataset is underpinned by primary data sources, notably the World Health Organization’s Global Health Expenditure Database (GHED) for domestic health spending, and a diverse set of sources for DAH, including program reports, budget data, national estimates, and National Health Accounts (NHAs).</p>
-<section id="description" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
+<p>For our research, we leveraged datasets from the Institute for Health Metrics and Evaluation (IHME), specifically the Global Health Spending datasets covering the periods 1995 to 2019 and 2020 to 2050. Accessible through the following links respectively: <a href="https://ghdx.healthdata.org/record/ihme-data/global-health-spending-1995-2019">Global Health Spending 1995 to 2019</a> and <a href="https://ghdx.healthdata.org/record/ihme-data/global-expected-health-spending-2020-2050">Global Health Spending 2020 to 2050</a>. These datasets aim to provide a comprehensive understanding of health spending across diverse countries and regions. IHME, a renowned research institute, specializes in collecting and analyzing global health data, offering valuable insights into health trends and challenges.</p>
+<p>The datasets offer a detailed breakdown of total health spending, categorizing expenditures by source (government, out-of-pocket, and prepaid private), and development assistance for health (DAH). To enhance usability, estimates are presented in constant 2021 United States Dollars, constant 2021 purchasing power parity adjusted (PPP) dollars, and as a percentage of gross domestic product (GDP). This diverse set of metrics facilitates a nuanced analysis of health spending trends and their economic implications.</p>
+<section id="technical-description" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="technical-description"><span class="header-section-number">2.1</span> Technical Description</h2>
+<p><strong>Data Format and Collection</strong>:</p>
+<p>The data collection process involved multiple sources, with a primary focus on the World Health Organization’s Global Health Expenditure Database (GHED), a reputable repository compiling global health expenditure information. Additionally, data for development assistance for health (DAH) were sourced from various outlets, including program reports, budget data, national estimates, and National Health Accounts (NHAs). Domestic health spending sources, encompassing government, out-of-pocket, and prepaid private health spending, primarily relied on data from the WHO’s GHED. For countries not covered by GHED, information was extracted from respective country ministries of health or finance websites.</p>
+<p>Assessment of GHED-extracted data reliability involved scrutinizing metadata provided by the World Health Organization (WHO). Utilizing natural language processing techniques, a data quality score ranging from 0 to 5 was assigned to each data point, considering metadata aspects such as reporting data source, data type, methods of estimation, and completeness. These quality scores informed the weighing of raw data, and a spatiotemporal Gaussian process model was applied to generate comprehensive time series estimates from 1995 to 2019 for each country. Additionally, 95% uncertainty intervals (UIs) were calculated to convey the range of potential values, accounting for inherent uncertainties. More details about the methodology can be found in the paper titled “Global investments in pandemic preparedness and COVID-19: development assistance and domestic spending on health between 1990 and 2026.”</p>
+<p>The dataset is structured in a tabular format, with each row representing a specific country or region and columns containing information on health spending metrics and related economic indicators. There are 79 indicators in total. The five primary variables—government health spending, out-of-pocket health spending, prepaid private health spending, and development assistance for health—all have mean values. Each of these variables is further stratified into subcategories, including per person, per total health spending, and per GDP. Additionally, the dataset provides values representing the lower and upper bounds for constant 2021 United States dollars, and lower and upper bounds for constant 2021 purchasing power parity power dollars, offering a comprehensive exploration of health spending dynamics across diverse metrics and dimensions.</p>
+<p>This granularity enables a comprehensive examination of the financing landscape in the realm of global health. The inclusion of lower and upper bounds for each health spending metric, coupled with adjustments for inflation using country-specific exchange rates and the IMF World Economic Outlook database deflator series, reflects a commitment to methodological rigor and transparency.</p>
+<p>By incorporating a range of values represented by lower and upper bounds, the dataset acknowledges the inherent uncertainty in economic and health expenditure forecasting. Economic conditions, currency exchange rates, and other external factors can introduce variability in health spending estimates. Therefore, providing a band of potential values serves as a safeguard against unforeseen fluctuations that may impact health spending trajectories.</p>
+<p>The adjustment for inflation using country-specific exchange rates and IMF deflators is crucial for maintaining the temporal integrity of the dataset. It ensures that all spending estimates are expressed in a consistent and comparable unit (inflation-adjusted 2021 US dollars), allowing for meaningful analysis and interpretation across different time periods and geographic regions. This meticulous approach to data preparation enhances the dataset’s reliability and utility, catering to the diverse needs of researchers, policymakers, and analysts in the field of global health economics.</p>
+<p>This dual-column structure, with lower and upper values, signifies a commitment to precision and transparency in data presentation. The lower and upper values serve as bookends, delineating a plausible range for each metric and acknowledging the inherent uncertainty in health expenditure estimates. This approach enhances the dataset’s reliability, providing users with nuanced insights into the potential variability of the reported values and promoting a more informed interpretation of global health spending trends.</p>
+<p><strong>Frequency of Updates</strong>:</p>
+<p>The dataset on Global Health Spending from 1995 to 2019, provided by IHME, does not appear to be regularly updated, and its last recorded information release was on January 24, 2023.</p>
+<p><strong>Importing the Data</strong>:</p>
+<p>From the IHME Global Health Data Exchange website, anyone can download the datasets, which are encompassed in an 834.93 KB CSV file (2015-2019) and a 1.09 MB CSV file (2020-2050). These files can then be conveniently imported into R for further analysis.</p>
 </section>
-<section id="missing-value-analysis" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</h2>
+<section id="research-plan" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research Plan</h2>
+<p>Within this section, we will undertake a detailed exploration of how this comprehensive dataset equips us to thoroughly respond to the research questions introduced earlier.</p>
+<p><strong>Trends in Global Health Spending Over Time</strong>:</p>
+<p>In this segment, our objective is to visually represent the evolving trends in global health spending over time. To achieve this, we will employ a multiple-line chart, enabling a comprehensive comparison of total health spending, spending per capita, and spending as a percentage of GDP across different temporal spans. By leveraging this visualization technique, we aim to discern any notable trends or patterns in health spending over the specified timeframe. This approach not only facilitates an exploration of the transformation in total global health spending but also provides insights into the observed trends, allowing us to investigate the potential impact of major global events, such as pandemics, on health spending.</p>
+<p><strong>Geographic Disparities</strong>:</p>
+<p>In our pursuit to unveil geographic disparities, we will direct our focus on different regions, which may be country-specific or continent-specific. This approach enables us to explore variations in health spending across diverse regions or continents.</p>
+<p>To commence, our examination will involve comparing health expenditure trends over time for various continents. Moreover, considering that the dataset categorizes countries into low, middle, and high-income groups, we aim to analyze health expenditure trends over time within these distinct income brackets.</p>
+<p>Adding granularity to our exploration, we intend to provide an overview of total health spending in the dataset’s most recent year, 2019. Through a geographic map, we will visualize total health spending with a continuous scale, creating an animated cartogram for the year 2019. This cartogram will specifically highlight total health spending and break it down into three categories: government, out-of-pocket, and pre-paid private spending.</p>
+<p>As a complementary visualization, we will construct a horizontal bar chart to compare total health spending for each country or region. This visualization is particularly effective in illustrating disparities. Additionally, a stacked bar chart will be employed to showcase the composition of health spending in each country, delineating categories such as government spending, out-of-pocket expenses, and prepaid private financing. This approach aims to provide insights into how countries allocate resources within their health systems, further contributing to our understanding of geographic health spending disparities.</p>
+<p><strong>Health Spending by Financing Source</strong>:</p>
+<p>Our third research theme delves into the intricate landscape of health spending by financing source. The dataset meticulously categorizes health spending into three domestic financing sources: government, out-of-pocket, and prepaid private. Within this section, our aim is to unravel nuanced patterns within these categories, exploring how they have evolved over the years from 1995 to 2019. Our particular interest lies in identifying potential effects of global events embedded in the data.</p>
+<p>To visually capture the evolving dynamics of health spending by financing source, we advocate for the creation of proportional stacked bar graphs spanning the years from 1995 to 2019. These graphs will serve as insightful tools, facilitating a comparative analysis of the proportions of different financing sources relative to each other across various temporal slices. Specifically, our plan includes generating three distinct graphs representing total spending, spending per person, and spending as a percentage of GDP over the specified time frame, all visualized as proportional stacked bar graphs. This approach provides an effective means to discern shifts and variations over the years, contributing to a comprehensive understanding of the intricate dynamics shaping health spending patterns.</p>
+<p>Moreover, our focus on the year 2019, being the most recent year, aims to present a current snapshot of the financial health expenditure landscape. To vividly illustrate the different proportions of health spending in this pivotal year, we intend to employ a pie chart. This visualization will offer a clear and concise representation of the distribution of financing sources, providing a succinct overview of the financial health expenditure situation in 2019.</p>
+<p><strong>Global Health Spending Patterns 2020 to 2050</strong>:</p>
+<p>For the last theme we will compare the past with future health spending patterns. We wil compare them based on the three themes discussed above, so over time patterns, geographic disparities, and health spending by financing source.</p>
+<p>To compare them over time, we will create a line chart for the years 1995 to 2050, where the past and future predictions are distinguishable by color. We will do the same for the three different health spending categories (government, out-of-pocket, and prepaid private). Furthermore, we will create stacked bar charts for the years 1995 to 2050 to compare the proportions of financing sources and how they will change over time.</p>
+<p>Focusing on the second theme, the geographic disparities. We will create a world map for the years 1995, 2019 and 2050 which will allow us to visually compare the total health spending patterns geographically and how they change over time.</p>
+<p>To compare both time and geographic are of the past and future, we want to create a heatmap to display health spending trends across both time and regions. Color intensity will represent spending levels, providing a visual summary of variations over the entire dataset.</p>
+</section>
+<section id="missing-value-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
+<p>As a whole, the data seems to be very clean. Upon thorough scrutiny of the data set, it becomes apparent that a singular column, the column titled “iso3,” has missing data. This column had 100 missing values, while all the other columns had no missing information.</p>
+<p><img src="missing.jpg" class="img-fluid" style="width:65.0%"></p>
+<p>These missing values, however, are not indicative of a flaw or oversight but rather a deliberate design choice in alignment with the dataset’s prescribed structure.The “iso3” column serves as a repository for three-letter country codes, crucial for country-specific identification. Upon closer inspection, it is discernible that certain rows within this column intentionally lack values. The rows that have missing is03 values correspond to values High income, Low income, Lower-middle income, and Upper-middle income in “location_name” column. This intentional omission is justified by consulting the dataset’s documentation, where it is explicitly stated that these specific entries do not correspond to any particular country.</p>
+<p><img src="datadocumentation.jpg" class="img-fluid" style="width:65.0%"></p>
+<p>Instead, these instances are intended to encapsulate broader, non-country-specific information or aggregates that do not require a specific country code. In essence, the intentional missing values in the “iso3” column serve as placeholders for entries that transcend the bounds of individual countries, reflecting a nuanced data structure designed to accommodate diverse information categories within the dataset.</p>
+<p>That being said, after taking a closer look at the data, we noticed that there are “-” or O inserted as some values.</p>
+<p>Those columns that have missing values and how many there are are:</p>
+<p>with - values: ppp_total_mean 86<br>
+ppp_total_lower 400<br>
+ppp_total_upper 75 ppp_total_ppp_mean 83<br>
+ppp_total_ppp_lower 386 ppp_total_ppp_upper 77<br>
+oop_total_lower 25 oop_total_ppp_lower 25<br>
+dah_total_mean 399<br>
+dah_total_ppp_mean 399</p>
+<p>with “0” values: dah_total_mean 1000 dah_total_ppp_mean 1000 ghes_per_cap_mean 9<br>
+ghes_per_cap_lower 17<br>
+ghes_per_cap_upper 5<br>
+ppp_per_cap_mean 747 ppp_per_cap_lower 928<br>
+ppp_per_cap_upper 633<br>
+ppp_per_cap_ppp_mean 599 ppp_per_cap_ppp_lower 692 ppp_per_cap_ppp_upper 510 oop_per_cap_mean 25 oop_per_cap_lower 25<br>
+oop_per_cap_upper 12<br>
+oop_per_cap_ppp_mean 25 oop_per_cap_ppp_lower 25<br>
+oop_per_cap_ppp_upper 19<br>
+dah_per_cap_mean 1857<br>
+dah_per_cap_ppp_mean 1700<br>
+ppp_per_the_mean 497<br>
+ppp_per_the_lower 499 ppp_per_the_upper 460 oop_per_the_mean 25<br>
+oop_per_the_lower 25<br>
+oop_per_the_upper 25<br>
+dah_per_the_mean 1654<br>
+dah_per_the_lower 1660<br>
+dah_per_the_upper 1648<br>
+ppp_per_gdp_mean 965 ppp_per_gdp_lower 1237<br>
+ppp_per_gdp_upper 800 oop_per_gdp_mean 25<br>
+oop_per_gdp_lower 25<br>
+oop_per_gdp_upper 25<br>
+dah_per_gdp_mean 2555<br>
+dah_per_gdp_lower 2591<br>
+dah_per_gdp_upper 2537</p>
+<p>Below are two bar graphs with this information illustrated.</p>
+<p><img src="dash.jpg" class="img-fluid" style="width:100.0%"> <img src="zero.jpg" class="img-fluid" style="width:100.0%"></p>
+<p>When looking at the data, each country has 25 rows of data (corresponding to years). So the variables in which the cases of - or 0 being 25, that is that one countries values have missing data. That then got us thinking about the looking at each location_name by itself and seeing if the missing values for each of those rows is the same or different. It turns out that, for different years, the amount of values that are - or 0 for each location, might not be the same.</p>
+<p>That being said, we decided against doing any imputation and we decided that we would convert any values that are - or 0 into 0. Since there is no case where the geniune value for any of the countries should be 0, we would not have to worry about misinterpretation.</p>
 
 
 </section>

@@ -1,6 +1,6 @@
 # Data
 
-For our research, we leveraged datasets from the Institute for Health Metrics and Evaluation (IHME), specifically the Global Health Spending datasets covering the periods 1995-2019 and 2020-2050. Accessible through the following links: Global Health Spending 1995-2019 and Global Health Spending 2020-2050, these datasets aim to provide a comprehensive understanding of health spending across diverse countries and regions. IHME, a renowned research institute, specializes in collecting and analyzing global health data, offering valuable insights into health trends and challenges.
+For our research, we leveraged datasets from the Institute for Health Metrics and Evaluation (IHME), specifically the Global Health Spending datasets covering the periods 1995 to 2019 and 2020 to 2050. Accessible through the following links respectively: [Global Health Spending 1995 to 2019](https://ghdx.healthdata.org/record/ihme-data/global-health-spending-1995-2019) and [Global Health Spending 2020 to 2050](https://ghdx.healthdata.org/record/ihme-data/global-expected-health-spending-2020-2050). These datasets aim to provide a comprehensive understanding of health spending across diverse countries and regions. IHME, a renowned research institute, specializes in collecting and analyzing global health data, offering valuable insights into health trends and challenges.
 
 The datasets offer a detailed breakdown of total health spending, categorizing expenditures by source (government, out-of-pocket, and prepaid private), and development assistance for health (DAH). To enhance usability, estimates are presented in constant 2021 United States Dollars, constant 2021 purchasing power parity adjusted (PPP) dollars, and as a percentage of gross domestic product (GDP). This diverse set of metrics facilitates a nuanced analysis of health spending trends and their economic implications.
 
@@ -32,7 +32,7 @@ From the IHME Global Health Data Exchange website, anyone can download the datas
 
 ## Research Plan
 
-The dataset encompasses retrospective health spending estimates spanning the years 1995 to 2019 for 204 countries and territories. Complementing this, a second dataset comprises projected health spending values for the years 2020 to 2050. This dual repository of information serves as the foundation for addressing our research inquiries, which are organized into four overarching themes. Within this section, we will undertake a detailed exploration of how this comprehensive dataset equips us to thoroughly respond to the research questions introduced earlier. 
+Within this section, we will undertake a detailed exploration of how this comprehensive dataset equips us to thoroughly respond to the research questions introduced earlier. 
 
 **Trends in Global Health Spending Over Time**:
 
@@ -60,7 +60,8 @@ Moreover, our focus on the year 2019, being the most recent year, aims to presen
 
 For the last theme we will compare the past with future health spending patterns. We wil compare them based on the three themes discussed above, so over time patterns, geographic disparities, and health spending by financing source.
 
-To compare them over time, we will create a line chart for the years 1995 to 2050, where the past and future predictions are distinguishable by color. We will do the same for the three different health spending categories (government, out-of-pocket, and prepaid private). Furthermore, we will create stacked bar charts for the years 1995 to 2050 to compare the proportions of financing sources and how they will change over time. We will also create a picture of the geogr
+To compare them over time, we will create a line chart for the years 1995 to 2050, where the past and future predictions are distinguishable by color. We will do the same for the three different health spending categories (government, out-of-pocket, and prepaid private). Furthermore, we will create stacked bar charts for the years 1995 to 2050 to compare the proportions of financing sources and how they will change over time. 
+
 Focusing on the second theme, the geographic disparities. We will create a world map for the years 1995, 2019 and 2050 which will allow us to visually compare the total health spending patterns geographically and how they change over time. 
 
 To compare both time and geographic are of the past and future, we want to create a heatmap to display health spending trends across both time and regions. Color intensity will represent spending levels, providing a visual summary of variations over the entire dataset. 
