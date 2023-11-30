@@ -1,4 +1,5 @@
 # Data
+
 We have chosen to delve into the extensive dataset provided by the Global Burden of Disease Health Financing Collaborator Network. This dataset encapsulates retrospective health spending estimates spanning the years 1995 to 2019 for 204 countries and territories, with a forward-looking projection extending from 2020 to 2050. The comprehensive nature of this dataset, encompassing various facets of health spending, offers a rich terrain for exploration and insight generation.
 
 The dataset's foundation lies in retrospective health spending estimates, meticulously compiled by the Global Burden of Disease Health Financing Collaborator Network. It encompasses critical components such as total health spending, health spending disaggregated by source into government, out-of-pocket, and prepaid private financing categories, and the vital metric of development assistance for health (DAH). The robustness of the dataset is underpinned by primary data sources, notably the World Health Organization's Global Health Expenditure Database (GHED) for domestic health spending, and a diverse set of sources for DAH, including program reports, budget data, national estimates, and National Health Accounts (NHAs).
@@ -7,4 +8,59 @@ The dataset's foundation lies in retrospective health spending estimates, meticu
 
 ## Missing value analysis
 
+As a whole, the data seems to be very clean. Upon thorough scrutiny of the data set, it becomes apparent that a singular column, the column titled "iso3," has missing data. This column had 100 missing values, while all the other columns had no missing information.
 
+![](missing.jpg){width="65%"}
+
+These missing values, however, are not indicative of a flaw or oversight but rather a deliberate design choice in alignment with the dataset's prescribed structure.The "iso3" column serves as a repository for three-letter country codes, crucial for country-specific identification. Upon closer inspection, it is discernible that certain rows within this column intentionally lack values. The rows that have missing is03 values correspond to values High income, Low income, Lower-middle income, and Upper-middle income in "location_name" column. This intentional omission is justified by consulting the dataset's documentation, where it is explicitly stated that these specific entries do not correspond to any particular country.
+
+![](datadocumentation.jpg){width="65%"}
+
+Instead, these instances are intended to encapsulate broader, non-country-specific information or aggregates that do not require a specific country code. In essence, the intentional missing values in the "iso3" column serve as placeholders for entries that transcend the bounds of individual countries, reflecting a nuanced data structure designed to accommodate diverse information categories within the dataset.
+
+That being said, after taking a closer look at the data, we noticed that there are "-" or O inserted as some values.
+
+Those columns that have missing values and how many there are are:
+
+with - values: ppp_total_mean 86\
+ppp_total_lower 400\
+ppp_total_upper 75 ppp_total_ppp_mean 83\
+ppp_total_ppp_lower 386 ppp_total_ppp_upper 77\
+oop_total_lower 25 oop_total_ppp_lower 25\
+dah_total_mean 399\
+dah_total_ppp_mean 399
+
+with "0" values: dah_total_mean 1000 dah_total_ppp_mean 1000 ghes_per_cap_mean 9\
+ghes_per_cap_lower 17\
+ghes_per_cap_upper 5\
+ppp_per_cap_mean 747 ppp_per_cap_lower 928\
+ppp_per_cap_upper 633\
+ppp_per_cap_ppp_mean 599 ppp_per_cap_ppp_lower 692 ppp_per_cap_ppp_upper 510 oop_per_cap_mean 25 oop_per_cap_lower 25\
+oop_per_cap_upper 12\
+oop_per_cap_ppp_mean 25 oop_per_cap_ppp_lower 25\
+oop_per_cap_ppp_upper 19\
+dah_per_cap_mean 1857\
+dah_per_cap_ppp_mean 1700\
+ppp_per_the_mean 497\
+ppp_per_the_lower 499 ppp_per_the_upper 460 oop_per_the_mean 25\
+oop_per_the_lower 25\
+oop_per_the_upper 25\
+dah_per_the_mean 1654\
+dah_per_the_lower 1660\
+dah_per_the_upper 1648\
+ppp_per_gdp_mean 965 ppp_per_gdp_lower 1237\
+ppp_per_gdp_upper 800 oop_per_gdp_mean 25\
+oop_per_gdp_lower 25\
+oop_per_gdp_upper 25\
+dah_per_gdp_mean 2555\
+dah_per_gdp_lower 2591\
+dah_per_gdp_upper 2537
+
+Below are two bar graphs with this information illustrated.
+
+![](dash.jpg){width="100%"}
+![](zero.jpg){width="100%"}
+
+When looking at the data, each country has 25 rows of data (corresponding to years). So the variables in which the cases of - or 0 being 25, that is that one countries values have missing data. That then got us thinking about the looking at each location_name by itself and seeing if the missing values for each of those rows is the same or different. It turns out that, for different years, the amount of values that are - or 0 for each location, might not be the same.
+
+That being said, we decided against doing any imputation and we decided that we would convert any values that are - or 0 into 0. Since there is no case where the geniune value for any of the countries should be 0, we would not have to worry about misinterpretation.

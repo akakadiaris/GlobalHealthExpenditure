@@ -1,0 +1,188 @@
+---
+title: "Missing Value Analysis"
+editor: visual
+---
+
+```{r}
+library(readr)
+
+data <- read_csv("IHME_HEALTH_SPENDING_1995_2019_Y2023M01D24.CSV", show_col_types = FALSE)
+```
+
+```{r}
+# Check for missing data
+
+# Check for missing values
+missing_values <- sapply(data, function(x) sum(is.na(x)))
+print(missing_values)
+# Create a data frame for plotting
+plot_data <- data.frame(column = names(missing_values), missing_count = missing_values)
+
+# Plot using ggplot2
+library(ggplot2)
+
+missing <- ggplot(plot_data, aes(x = column, y = missing_count)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "Number of Missing Values in Each Column", x = "Column", y = "Missing Count") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+print(missing)
+```
+
+```{r}
+# Find rows without missing values
+complete_rows <- data[complete.cases(data), ]
+
+# Show the rows with missing values
+rows_with_missing <- data[!complete.cases(data), ]
+
+# Print or inspect the rows with missing values
+print(rows_with_missing)
+```
+
+```{r}
+# Assuming your dataframe is named 'data'
+missing_values <- sapply(data, function(x) sum(x == "-" | x == "0"))
+
+# Plotting the counts
+barplot(missing_values, col=c("red", "blue"), names.arg=names(missing_values),
+        main="Count of Missing Values (- or 0) in Each Column",
+        xlab="Columns", ylab="Count")
+```
+
+```{r}
+library(dplyr)
+
+# Assuming your dataframe is named 'data'
+data_long <- tidyr::gather(data, key = "column", value = "value")
+
+# Count occurrences of "-" or "0" in each column
+missing_values <- data_long %>% 
+  group_by(column) %>% 
+  summarize(missing_count = sum(value == "-" | value == "0"))
+
+# Create a bar plot
+ggplot(missing_values, aes(x = column, y = missing_count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of Missing Values (- or 0) in Each Column",
+       x = "Columns",
+       y = "Count") +
+  theme_minimal()
+
+
+```
+
+```{r}
+# Initialize an empty list to store results
+missing_values_list <- list()
+
+# Loop through each column
+for (col in names(data)) {
+  # Count occurrences of "-" and "0" in each column
+  missing_count_minus <- sum(data[, col] == "-")
+  missing_count_zero <- sum(data[, col] == "0")
+  
+  # Store the results in a list
+  missing_values_list[[col]] <- c(minus = missing_count_minus, zero = missing_count_zero)
+}
+
+# Convert the list to a data frame
+missing_values_df <- as.data.frame(do.call(rbind, missing_values_list))
+
+# Rename the columns
+colnames(missing_values_df) <- c("Minus", "Zero")
+
+# Add a column for column names
+missing_values_df$Column <- names(data)
+
+# Reorder the columns
+missing_values_df <- missing_values_df[, c("Column", "Minus", "Zero")]
+
+# Print the resulting table
+missing_values_df
+```
+
+```{r}
+# Assuming you have the values in a data frame named 'data'
+data_dash <- data.frame(
+  metric = c("ppp_total_mean", "ppp_total_ppp_mean", "oop_total_lower", "oop_total_ppp_lower", "dah_total_mean", "dah_total_ppp_mean"),
+  value = c(86, 83, 25, 25, 399, 399)
+)
+
+# Load ggplot2 library
+library(ggplot2)
+
+# Create a bar chart
+ggplot(data_dash, aes(x = metric, y = value)) +
+  geom_bar(stat = "identity", position = "dodge", fill='lightblue') +
+  geom_text(aes(label = value), vjust = -0.5, size = 3) +
+  labs(title = "Variables with '-'",
+       x = "Variables",
+       y = "Number") +
+  theme_minimal() + theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Assuming you have the new values in a data frame named 'data_new'
+data_zero <- data.frame(
+  metric = c(
+    "dah_total_mean", "dah_total_ppp_mean", "ghes_per_cap_mean",
+    "ppp_per_cap_mean", "ppp_per_cap_ppp_mean", "oop_per_cap_mean",
+    "oop_per_cap_ppp_mean", "dah_per_cap_mean", "dah_per_cap_ppp_mean",
+    "ppp_per_the_mean", "oop_per_the_mean", "dah_per_the_mean",
+    "ppp_per_gdp_mean", "oop_per_gdp_mean", "dah_per_gdp_mean"
+  ),
+  value = c(
+    1000, 1000, 9, 747, 599, 25, 25, 1857, 1700,
+    497, 25, 1654, 965, 25, 2555
+  )
+)
+
+# Load ggplot2 library
+library(ggplot2)
+
+# Create a bar chart with rotated x-axis labels
+ggplot(data_zero, aes(x = metric, y = value)) +
+  geom_bar(stat = "identity", position = "dodge", fill = "lightblue") +
+  geom_text(aes(label = value), vjust = -0.5, size = 3) +
+  labs(title = "Variables with '0'",
+       x = "Metrics",
+       y = "Values") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r}
+# Count the number of '-' or '0' in each row
+data$count_missing <- rowSums(data == "-" | data == "0", na.rm = TRUE)
+
+# Print the result
+print(data[, c("location_name", "count_missing")])
+```
+
+```{r}
+# Function to count the number of '-' or '0' in a vector
+count_missing_in_vector <- function(vector) {
+  sum(vector == "-" | vector == "0", na.rm = TRUE)
+}
+
+# Count occurrences for each unique location_name
+result <- data %>%
+  group_by(location_name) %>%
+  summarize(count_missing = count_missing_in_vector(unlist(across(everything()))))
+
+# Print the result
+print(result)
+
+# Assuming your dataframe is named 'result'
+ggplot(result, aes(x = location_name, y = count_missing)) +
+  geom_bar(stat = "identity", fill = "skyblue", color = "black") +
+  labs(title = "Count of '-' or '0' in each location_name",
+       x = "location_name",
+       y = "Count") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+
+
