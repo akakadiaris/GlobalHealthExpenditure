@@ -6,7 +6,7 @@ The datasets offer a detailed breakdown of total health spending, categorizing e
 
 ## Technical Description
 
-**Data Format and Collection**:
+**Data Format and Collection**
 
 The data collection process involved multiple sources, with a primary focus on the World Health Organization’s Global Health Expenditure Database (GHED), a reputable repository compiling global health expenditure information. Additionally, data for development assistance for health (DAH) were sourced from various outlets, including program reports, budget data, national estimates, and National Health Accounts (NHAs). Domestic health spending sources, encompassing government, out-of-pocket, and prepaid private health spending, primarily relied on data from the WHO’s GHED. For countries not covered by GHED, information was extracted from respective country ministries of health or finance websites.
 
@@ -22,11 +22,11 @@ The adjustment for inflation using country-specific exchange rates and IMF defla
 
 This dual-column structure, with lower and upper values, signifies a commitment to precision and transparency in data presentation. The lower and upper values serve as bookends, delineating a plausible range for each metric and acknowledging the inherent uncertainty in health expenditure estimates. This approach enhances the dataset's reliability, providing users with nuanced insights into the potential variability of the reported values and promoting a more informed interpretation of global health spending trends.
 
-**Frequency of Updates**:
+**Frequency of Updates**
 
 The dataset on Global Health Spending from 1995 to 2019, provided by IHME, does not appear to be regularly updated, and its last recorded information release was on January 24, 2023.
 
-**Importing the Data**:
+**Importing the Data**
 
 From the IHME Global Health Data Exchange website, anyone can download the datasets, which are encompassed in an 834.93 KB CSV file (2015-2019) and a 1.09 MB CSV file (2020-2050). These files can then be conveniently imported into R for further analysis.
 
@@ -34,11 +34,11 @@ From the IHME Global Health Data Exchange website, anyone can download the datas
 
 Within this section, we will undertake a detailed exploration of how this comprehensive dataset equips us to thoroughly respond to the research questions introduced earlier. 
 
-**Trends in Global Health Spending Over Time**:
+**Trends in Global Health Spending Over Time**
 
 In this segment, our objective is to visually represent the evolving trends in global health spending over time. To achieve this, we will employ a multiple-line chart, enabling a comprehensive comparison of total health spending, spending per capita, and spending as a percentage of GDP across different temporal spans. By leveraging this visualization technique, we aim to discern any notable trends or patterns in health spending over the specified timeframe. This approach not only facilitates an exploration of the transformation in total global health spending but also provides insights into the observed trends, allowing us to investigate the potential impact of major global events, such as pandemics, on health spending.
 
-**Geographic Disparities**:
+**Geographic Disparities**
 
 In our pursuit to unveil geographic disparities, we will direct our focus on different regions, which may be country-specific or continent-specific. This approach enables us to explore variations in health spending across diverse regions or continents.
 
@@ -48,7 +48,7 @@ Adding granularity to our exploration, we intend to provide an overview of total
 
 As a complementary visualization, we will construct a horizontal bar chart to compare total health spending for each country or region. This visualization is particularly effective in illustrating disparities. Additionally, a stacked bar chart will be employed to showcase the composition of health spending in each country, delineating categories such as government spending, out-of-pocket expenses, and prepaid private financing. This approach aims to provide insights into how countries allocate resources within their health systems, further contributing to our understanding of geographic health spending disparities.
 
-**Health Spending by Financing Source**:
+**Health Spending by Financing Source**
 
 Our third research theme delves into the intricate landscape of health spending by financing source. The dataset meticulously categorizes health spending into three domestic financing sources: government, out-of-pocket, and prepaid private. Within this section, our aim is to unravel nuanced patterns within these categories, exploring how they have evolved over the years from 1995 to 2019. Our particular interest lies in identifying potential effects of global events embedded in the data.
 
@@ -56,7 +56,7 @@ To visually capture the evolving dynamics of health spending by financing source
 
 Moreover, our focus on the year 2019, being the most recent year, aims to present a current snapshot of the financial health expenditure landscape. To vividly illustrate the different proportions of health spending in this pivotal year, we intend to employ a pie chart. This visualization will offer a clear and concise representation of the distribution of financing sources, providing a succinct overview of the financial health expenditure situation in 2019.
 
-**Global Health Spending Patterns 2020 to 2050**:
+**Global Health Spending Patterns 2020 to 2050**
 
 For the last theme we will compare the past with future health spending patterns. We wil compare them based on the three themes discussed above, so over time patterns, geographic disparities, and health spending by financing source.
 
