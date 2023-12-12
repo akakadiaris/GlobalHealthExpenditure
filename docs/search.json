@@ -131,5 +131,33 @@
     "title": "2  Data",
     "section": "2.6 Global Health Spending Patterns 2020 to 2050",
     "text": "2.6 Global Health Spending Patterns 2020 to 2050\nFor the last theme we will compare the past with future health spending patterns. We wil compare them based on the three themes discussed above, so over time patterns, geographic disparities, and health spending by financing source.\nTo compare them over time, we will create a line chart for the years 1995 to 2050, where the past and future predictions are distinguishable by color. We will do the same for the three different health spending categories (government, out-of-pocket, and prepaid private). Furthermore, we will create stacked bar charts for the years 1995 to 2050 to compare the proportions of financing sources and how they will change over time. We will also create a picture of the geogr Focusing on the second theme, the geographic disparities. We will create a world map for the years 1995, 2019 and 2050 which will allow us to visually compare the total health spending patterns geographically and how they change over time.\nTo compare both time and geographic are of the past and future, we want to create a heatmap to display health spending trends across both time and regions. Color intensity will represent spending levels, providing a visual summary of variations over the entire dataset."
+  },
+  {
+    "objectID": "results.html#trends-in-global-health-spending-over-time",
+    "href": "results.html#trends-in-global-health-spending-over-time",
+    "title": "3  Results",
+    "section": "3.1 Trends in Global Health Spending Over Time",
+    "text": "3.1 Trends in Global Health Spending Over Time"
+  },
+  {
+    "objectID": "results.html#geographic-disparities",
+    "href": "results.html#geographic-disparities",
+    "title": "3  Results",
+    "section": "3.2 Geographic Disparities",
+    "text": "3.2 Geographic Disparities"
+  },
+  {
+    "objectID": "results.html#health-spending-by-financing-source",
+    "href": "results.html#health-spending-by-financing-source",
+    "title": "3  Results",
+    "section": "3.3 Health Spending by Financing Source",
+    "text": "3.3 Health Spending by Financing Source\n\n\nCode\nlibrary(readr)\nlibrary(dplyr)\n\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nCode\nlibrary(ggplot2)\nlibrary(tidyr)\n\n\n\n\nCode\n# Retrieve data\nhealth_spending_1995_2019 &lt;- read_csv(\"/Users/anouckrietveld/Downloads/IHME_HEALTH_SPENDING_1995_2019_Y2023M01D24.CSV\")\n\n\nRows: 5400 Columns: 84\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (13): location_name, iso3, level, ppp_total_mean, ppp_total_lower, ppp_t...\ndbl (71): location_id, year, the_total_mean, the_total_lower, the_total_uppe...\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n\n\nCode\n# Filter dataset on continents\nselected_regions &lt;- c(\n  \"Central Europe, Eastern Europe, and Central Asia\",\n  \"Latin America and Caribbean\",\n  \"North Africa and Middle East\",\n  \"South Asia\",\n  \"Southeast Asia, East Asia, and Oceania\",\n  \"Sub-Saharan Africa\"\n)\n\ncontinents_1995_2019 &lt;- health_spending_1995_2019 %&gt;% filter(location_name %in% selected_regions)\n\n\n\n\nCode\n# pivot_longer stuff\ncontinents_2019 &lt;- continents_1995_2019 %&gt;%\n  filter(year == 2019)\n\n# Make the values numeric\ncontinents_2019 &lt;- continents_2019 %&gt;%\n  mutate_at(vars('the_total_mean', 'ghes_total_mean', 'oop_total_mean', 'ppp_total_mean'), as.numeric) %&gt;%\n  select(location_name, location_id, 'the_total_mean', 'ghes_total_mean', 'oop_total_mean', 'ppp_total_mean')\n\n# Print the first few rows of the filtered data\nhead(continents_2019)\n\n\n# A tibble: 6 × 6\n  location_name        location_id the_total_mean ghes_total_mean oop_total_mean\n  &lt;chr&gt;                      &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;\n1 Central Europe, Eas…          31      270129795       174643053       84733263\n2 Latin America and C…         103      329342435       168942236       95256807\n3 North Africa and Mi…         137      275726468       155476416       85107211\n4 South Asia                   158      115686598        35783631       65845394\n5 Southeast Asia, Eas…           4      993725917       558976076      345172185\n6 Sub-Saharan Africa           166       88214326        35440619       25192924\n# ℹ 1 more variable: ppp_total_mean &lt;dbl&gt;\n\n\nCode\nnew_data &lt;- continents_2019 %&gt;%\n   pivot_longer(cols = c('the_total_mean', 'ghes_total_mean', 'oop_total_mean', 'ppp_total_mean'), names_to = \"Spending_Source\", values_to = \"Health_Expenditure\")\n\n\n\n\nCode\n# Visualization 2019 health spending per continent\nggplot(data = new_data, mapping = aes(x = Spending_Source, y = Health_Expenditure, fill = Spending_Source)) +\n  geom_col(position = \"dodge\") +\n  facet_wrap(~ location_name) +\n  labs(title = \"Health Spending by Financing Source\",\n       subtitle = \"Per Continent\",\n       x = \"Spending Source\", \n       y = \"Health Expenditure\", \n       fill = \"Spending Source\") +\n  theme(axis.text.x = element_blank())"
+  },
+  {
+    "objectID": "results.html#global-health-spending-patterns-2020-to-2050",
+    "href": "results.html#global-health-spending-patterns-2020-to-2050",
+    "title": "3  Results",
+    "section": "3.4 Global Health Spending Patterns 2020 to 2050",
+    "text": "3.4 Global Health Spending Patterns 2020 to 2050"
   }
 ]

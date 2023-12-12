@@ -1,1 +1,67 @@
 # Results
+
+## Trends in Global Health Spending Over Time
+
+## Geographic Disparities
+
+## Health Spending by Financing Source
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+```
+
+
+```{r}
+# Retrieve data
+health_spending_1995_2019 <- read_csv("/Users/anouckrietveld/Downloads/IHME_HEALTH_SPENDING_1995_2019_Y2023M01D24.CSV")
+```
+
+```{r}
+# Filter dataset on continents
+selected_regions <- c(
+  "Central Europe, Eastern Europe, and Central Asia",
+  "Latin America and Caribbean",
+  "North Africa and Middle East",
+  "South Asia",
+  "Southeast Asia, East Asia, and Oceania",
+  "Sub-Saharan Africa"
+)
+
+continents_1995_2019 <- health_spending_1995_2019 %>% filter(location_name %in% selected_regions)
+```
+```{r}
+# pivot_longer stuff
+continents_2019 <- continents_1995_2019 %>%
+  filter(year == 2019)
+
+# Make the values numeric
+continents_2019 <- continents_2019 %>%
+  mutate_at(vars('the_total_mean', 'ghes_total_mean', 'oop_total_mean', 'ppp_total_mean'), as.numeric) %>%
+  select(location_name, location_id, 'the_total_mean', 'ghes_total_mean', 'oop_total_mean', 'ppp_total_mean')
+
+# Print the first few rows of the filtered data
+head(continents_2019)
+
+new_data <- continents_2019 %>%
+   pivot_longer(cols = c('the_total_mean', 'ghes_total_mean', 'oop_total_mean', 'ppp_total_mean'), names_to = "Spending_Source", values_to = "Health_Expenditure")
+```
+
+
+```{r}
+# Visualization 2019 health spending per continent
+ggplot(data = new_data, mapping = aes(x = Spending_Source, y = Health_Expenditure, fill = Spending_Source)) +
+  geom_col(position = "dodge") +
+  facet_wrap(~ location_name) +
+  labs(title = "Health Spending by Financing Source",
+       subtitle = "Per Continent",
+       x = "Spending Source", 
+       y = "Health Expenditure", 
+       fill = "Spending Source") +
+  theme(axis.text.x = element_blank())
+```
+
+
+## Global Health Spending Patterns 2020 to 2050
+
