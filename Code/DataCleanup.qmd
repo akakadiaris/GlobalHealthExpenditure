@@ -1,0 +1,65 @@
+---
+title: "Data Cleanup"
+editor: visual
+---
+
+```{r}
+library(readr)
+
+data <- read_csv("IHME_HEALTH_SPENDING_1995_2019_Y2023M01D24.CSV", show_col_types = FALSE)
+```
+
+```{r}
+# Create a function to map location_name to continent
+get_continent <- function(location_name) {
+  if (location_name %in% c("Afghanistan", "Bahrain", "Iran (Islamic Republic of)", "Iraq", "Kuwait", "Oman", "Pakistan", "Qatar", "Saudi Arabia", "United Arab Emirates", "Yemen")) {
+    return("Asia")
+  } else if (location_name %in% c("Bangladesh", "Bhutan", "Democratic People's Republic of Korea", "Democratic Republic of the Congo", "Guam", "India", "Indonesia", "Israel", "Japan", "Jordan", "Kazakhstan", "Kyrgyzstan", "Lao People's Democratic Republic", "Lebanon", "Malaysia", "Maldives", "Mongolia", "Myanmar", "Nepal", "Niue", "Northern Mariana Islands", "Palestine", "Philippines", "Republic of Korea", "Republic of Moldova", "Singapore", "Sri Lanka", "Syrian Arab Republic", "Taiwan (Province of China)", "Tajikistan", "Thailand", "Timor-Leste", "Tokelau", "Turkmenistan", "United Republic of Tanzania", "Uzbekistan", "Viet Nam",'Brunei Darussalam','Cambodia','China')) {
+    return("Asia")
+  } else if (location_name %in% c("Albania", "Andorra", "Armenia", "Austria", "Azerbaijan", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czechia", "Denmark", "Estonia", "Finland", "France", "Georgia", "Germany", "Greece", "Greenland", "Hungary", "Iceland", "Ireland", "Italy", "Latvia", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal", "Romania", "Russian Federation", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Turkey", "Ukraine", "United Kingdom")) {
+    return("Europe")
+  } else if (location_name %in% c("Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon", "Central African Republic", "Chad", "Comoros", "Congo", "Côte d'Ivoire", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe")) {
+    return("Africa")
+  } else if (location_name %in% c("Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Bermuda", "Canada", "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "El Salvador", "Greenland", "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Puerto Rico", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Trinidad and Tobago", "United States Virgin Islands", "United States of America", "American Samoa")) {
+    return("North America")
+  } else if (location_name %in% c("Argentina", "Bolivia (Plurinational State of)", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay", "Peru", "Suriname", "Uruguay", "Venezuela (Bolivarian Republic of)")) {
+    return("South America")
+  } else if (location_name %in% c("Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia (Federated States of)", "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu",'Cook Islands')) {
+    return("Oceania")
+  } else {
+    return("Unknown")
+  }
+}
+
+# Apply the function to create the continent column
+data$continent <- sapply(data$location_name, get_continent)
+```
+
+```{r}
+# Change data types of the dataframe 
+
+# Display the structure of the dataframe
+#str(data)
+
+# Convert 'year' to a factor to ensure proper ordering on the x-axis
+data$year <- as.factor(data$year)
+
+# Convert columns that are not supposed to be characters into numeric variables 
+columns_to_convert <- c("ppp_total_mean", "ppp_total_lower", "ppp_total_upper", "ppp_total_ppp_mean", "ppp_total_ppp_lower", "ppp_total_ppp_upper", "oop_total_lower", "oop_total_ppp_lower", "dah_total_mean", "dah_total_ppp_mean")
+
+# Loop through each column and convert to numeric
+for (col in columns_to_convert) {
+  data[[col]] <- as.numeric(data[[col]])
+}
+
+# Display the structure of the dataframe
+#str(data)
+```
+
+```{r}
+# Export new csv file with pre-processed data
+# Assuming your dataframe is named 'data'
+write.csv(data, "data.csv", row.names = TRUE)
+```
+
+
