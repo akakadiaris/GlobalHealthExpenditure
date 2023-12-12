@@ -1,0 +1,205 @@
+---
+title: "Trends in Global Health Spending"
+editor: visual
+---
+
+```{r}
+library(readr)
+
+data <- read_csv("data.csv", show_col_types = FALSE)
+data.column
+```
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+# Convert 'year' to a factor to ensure proper ordering on the x-axis
+#data$year <- as.factor(data$year)
+
+# Specify the specific values of location_name you want to include in the plot
+selected_continents <- c("Africa", "Asia", "Europe", "Oceania", "North America", "South America")
+
+# Filter the dataframe based on the selected location names
+filtered_df <- data %>% 
+  filter(continent %in% selected_continents) %>%
+  select(year, location_name, continent, ghes_total_mean, ppp_total_mean, oop_total_mean, dah_total_mean) %>%
+  gather(key = "variable", value = "value", -year, -location_name, -continent)
+
+# Ensure that the 'value' column is numeric
+filtered_df <- filtered_df %>% mutate(value = as.numeric(value))
+
+# Create a new variable scaled in thousands
+filtered_df <- filtered_df %>% mutate(scaled_value = value / 10000)
+
+# Plot: Health Expenditure Over Time for specific columns with facets and scaled y-axis
+ggplot(filtered_df, aes(x = year, y = scaled_value, color = variable, group = interaction(variable, continent))) +
+  geom_line() +
+  ggtitle("Health Expenditure Over Time (in Ten Thousands)") +
+  xlab("Year") +
+  ylab("Health Expenditure (in Ten Thousands)") +
+  facet_grid(continent ~ ., scales = "free_y") +  # Facet based on location_name
+  theme_minimal() +
+  scale_color_manual(values = c("red", "blue", "green", "purple"))  # Adjust colors as needed
+
+```
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+# Convert 'year' to a factor to ensure proper ordering on the x-axis
+data$year <- as.factor(data$year)
+
+# Specify the specific values of location_name you want to include in the plot
+selected_continent <- c("Africa", "Asia", "Europe", "North America", "Oceania", "South America")
+
+# Filter the dataframe based on the selected location names
+filtered_df <- data %>% 
+  filter(continent %in% selected_continent) %>%
+  select(year, continent, ghes_total_mean, ppp_total_mean, oop_total_mean, dah_total_mean) %>%
+  gather(key = "variable", value = "value", -year, -continent)
+
+# Ensure that the 'value' column is numeric
+filtered_df <- filtered_df %>% mutate(value = as.numeric(value))
+
+# Create a new variable scaled in ten thousands
+filtered_df <- filtered_df %>% mutate(scaled_value = value / 10000)
+
+# Plot: Health Expenditure Over Time for specific columns with facets and scaled y-axis
+ggplot_object <- ggplot(filtered_df, aes(x = year, y = scaled_value, 
+                                         group = interaction(continent, variable),
+                                         color = continent,
+                                         text = paste("Continent: ", continent, "<br>",
+                                                      "Year: ", year, "<br>",
+                                                      "Variable: ", variable, "<br>",
+                                                      "Value: ", scaled_value))) +
+  geom_line(size = 1) +
+  geom_point(size = 1) +
+  ggtitle("Health Expenditure Over Time (in Ten Thousands)") +
+  xlab("Year") +
+  ylab("Health Expenditure (in Ten Thousands)") +
+  facet_grid(variable ~ ., scales = "free_y") +  # Facet based on variable
+  theme_minimal() 
+
+#print(ggplot_object)
+# Convert ggplot to Plotly
+plotly_object <- ggplotly(ggplot_object)
+
+# Show the Plotly object
+print(plotly_object)
+```
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+# Convert 'year' to a factor to ensure proper ordering on the x-axis
+data$year <- as.factor(data$year)
+
+# Specify the specific values of location_name you want to include in the plot
+selected_locations <- c("Central Europe, Eastern Europe, and Central Asia", 
+                        "Latin America and Caribbean", 
+                        "North Africa and Middle East", 
+                        "South Asia", 
+                        "Southeast Asia, East Asia, and Oceania",
+                        "Sub-Saharan Africa")
+
+# Filter the dataframe based on the selected location names
+filtered_df <- data %>% 
+  filter(location_name %in% selected_locations) %>%
+  select(year, location_name, ghes_total_mean, ppp_total_mean, oop_total_mean, dah_total_mean) %>%
+  gather(key = "variable", value = "value", -year, -location_name)
+
+# Ensure that the 'value' column is numeric
+filtered_df <- filtered_df %>% mutate(value = as.numeric(value))
+
+# Plot: Health Expenditure Over Time for specific columns with facets
+ggplot_object <- ggplot(filtered_df, aes(x = year, y = value, 
+                                         group = interaction(location_name, variable),
+                                         color = location_name,
+                                         text = paste("Location: ", location_name, "<br>",
+                                                      "Year: ", year, "<br>",
+                                                      "Variable: ", variable, "<br>",
+                                                      "Value: ", value))) +
+  geom_line(size = 1) +
+  geom_point(size = 1) +
+  ggtitle("Health Expenditure Over Time") +
+  xlab("Year") +
+  ylab("Health Expenditure") +
+  facet_grid(variable ~ ., scales = "free_y") +  # Facet based on variable
+  theme_minimal() 
+
+# Convert ggplot to Plotly
+plotly_object <- ggplotly(ggplot_object)
+
+# Show the Plotly object
+print(plotly_object)
+```
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+library(plotly)
+
+# Convert 'year' to a factor to ensure proper ordering on the x-axis
+data$year <- as.factor(data$year)
+
+# Specify the specific values of location_name you want to include in the plot
+selected_continent <- c("Africa", "Asia", "Europe", "North America", "Oceania", "South America")
+
+# Filter the dataframe based on the selected location names
+filtered_df <- data %>% 
+  filter(continent %in% selected_continent) %>%
+  group_by(year, continent) %>%
+  summarize(ghes_total_mean = mean(ghes_total_mean),
+            ppp_total_mean = mean(ppp_total_mean),
+            oop_total_mean = mean(oop_total_mean),
+            dah_total_mean = mean(dah_total_mean))
+
+# Convert from wide to long format
+filtered_df <- filtered_df %>%
+  gather(key = "variable", value = "value", -year, -continent)
+
+# Ensure that the 'value' column is numeric
+filtered_df <- filtered_df %>% mutate(value = as.numeric(value))
+
+# Create a new variable scaled in ten thousands
+filtered_df <- filtered_df %>% mutate(scaled_value = value / 10000)
+
+# Plot: Health Expenditure Over Time for specific columns with facets and scaled y-axis
+ggplot_object <- ggplot(filtered_df, aes(x = year, y = scaled_value, 
+                                         group = interaction(continent, variable),
+                                         color = continent,
+                                         text = paste("Continent: ", continent, "<br>",
+                                                      "Year: ", year, "<br>",
+                                                      "Variable: ", variable, "<br>",
+                                                      "Value: ", scaled_value))) +
+  geom_line(size = 1) +
+  geom_point(size = 1) +
+  ggtitle("Health Expenditure Over Time (in Ten Thousands)") +
+  xlab("Year") +
+  ylab("Health Expenditure (in Ten Thousands)") +
+  facet_grid(variable ~ ., scales = "free_y") +  # Facet based on variable
+  theme_minimal() 
+
+# Convert ggplot to Plotly
+plotly_object <- ggplotly(ggplot_object)
+
+# Show the Plotly object
+print(plotly_object)
+```
+
+
+
+
