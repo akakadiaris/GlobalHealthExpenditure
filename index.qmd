@@ -2,9 +2,9 @@
 
 The allocation and trends in health spending wield profound implications for the well-being of nations. Timely and accurate information on health expenditure is crucial for preparing and responding to health emergencies, including pandemics. It enables countries and international organizations to allocate resources strategically, strengthen healthcare infrastructure, and enhance preparedness measures. This information is also vital for assessing the efficiency and effectiveness of health services, identifying areas for improvement, and achieving better health outcomes. Finally, estimates of future health spending can be beneficial for policymakers and planners and can identify financing gaps. 
 
-This project delves into the realm of visualizing and comprehending the dynamics of Global Health Spending—a subject of paramount importance often obscured in the complexity of its vast dataset. The decision to explore this topic is rooted in the imperative to unravel patterns, disparities, and trends shaping how countries invest in the health and well-being of their populations. To do so, we leverage two comprehensive datasets containing health expenditure data for 204 countries from 1995 to 2019, and 2020 to 2050, produced by the Global Burden of Disease Health Financing Collaborator Network. These datasets encompasses a myriad of components, from government contributions and out-of-pocket expenses to development assistance and prepaid private financing. This holistic perspective on health spending transcends individual borders, offering insights into the global landscape of healthcare economics. 
+This project delves into the realm of visualizing and comprehending the dynamics of Global Health Spending—a subject of paramount importance often obscured in the complexity of its vast dataset. The decision to explore this topic is rooted in the imperative to unravel patterns, disparities, and trends shaping how countries invest in the health and well-being of their populations. To do so, we leverage a comprehensive dataset containing health expenditure data for 204 countries from 1995 to 2019, produced by the Global Burden of Disease Health Financing Collaborator Network. This dataset encompasses a myriad of components, from government contributions and out-of-pocket expenses to development assistance and prepaid private financing. This holistic perspective on health spending transcends individual borders, offering insights into the global landscape of healthcare economics. 
 
-The questions propelling this inquiry are as diverse as the facets of health spending itself. Seeking to bring clarity to this complexity, this research aims to address critical queries that traverse the temporal, geographical, financial source and future dimensions of health expenditure. Therefore, we will focus on the following four themes: Trends in Global Health Spending Over Time, Geographic Disparities, Health Spending by Financing Source, and Global Health Spending Patterns 2020 to 2050. 
+The questions propelling this inquiry are as diverse as the facets of health spending itself. Seeking to bring clarity to this complexity, this research aims to address critical queries that traverse the temporal, geographical, financial source and future dimensions of health expenditure. Therefore, we will focus on the following three themes: Trends in Global Health Spending Over Time, Geographic Disparities, and Health Spending by Financing Source.
 
 **Trends in Global Health Spending Over Time**
 
@@ -17,19 +17,6 @@ A second avenue of exploration navigates the disparities in health spending acro
 **Health Spending by Financing Source**
 
 Moving further, the research scrutinizes the sources fueling health spending. How much comes from government allocations, out-of-pocket expenses, and prepaid private sources? How have these proportions changed globally over time? We aim to paint a nuanced picture of the financial architecture sustaining healthcare systems.
-
-
-**Global Health Spending Patterns 2020 to 2050**
-
-Lastly, we focus on the future. The data from the Global Burden of Disease Health Financing Collaborator Network projected health spending estimates for 2020 to 2050 for 204 countries and territories. We analyze total health spending from the perspective of the previously discussed three themes, spending patterns over time, geographic disparities, along with disaggregated spending by source (government, out-of-pocket, and prepaid private). We aim to compare past trends with predicted trends to gain valuable insights based on the previously discussed themes. 
-
-*Comparing Over Time Patterns*: How do total health spending patterns evolve from 1995 to 2050, considering both historical data and future predictions? What insights can be gained by visually comparing past and predicted health spending patterns through a line chart spanning the years 1995-2050?
-
-*Comparing Geographic Disparities*: How do total health spending patterns vary geographically in 1995, 2019, and the projected year 2050? Are there notable changes in geographic disparities over time, and how do they align with global health trends? In what regions do significant disparities persist or emerge, and how might these impact future health outcomes?
-
-*Comparing Health Spending by Financing Source*: How do government, out-of-pocket, and prepaid private health spending categories compare over time, integrating both historical and future perspectives? What shifts in the proportions of financing sources are anticipated from 1995 to 2050, and how might they influence overall health expenditure?
-
-*Integrated Comparison*: Time, Geography, and Total Health Spending: How does the integrated comparison of health spending trends over time, geographic regions, and financing sources contribute to a holistic understanding of global health economics?
 
 **Conclusion**
 
