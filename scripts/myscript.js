@@ -226,8 +226,8 @@
       .paddingInner(0.1);
 
   const yScale = d3.scaleLinear()
-    .domain([0, 1200])
-    .range([innerHeight, 0]);
+      .domain([0,	d3.max(datasetGlobal, d => d.government + d.out_of_pocket + d.prepaid_private)])
+      .range([innerHeight, 0]);
 
   const xAxis = d3.axisBottom()
       .scale(xScale);
@@ -340,8 +340,11 @@
         .range([0, innerWidth])
         .paddingInner(0.1);
 
-    const yScale = d3.scaleLinear()
-      .domain([0, 1200])
+    svg.select(".yAxis")
+        .remove()
+
+    yScale
+      .domain([0,	d3.max(selectedDataset, d => d.government + d.out_of_pocket + d.prepaid_private)])
       .range([innerHeight, 0]);
 
     const xAxis = d3.axisBottom()
@@ -349,6 +352,13 @@
 
     const yAxis = d3.axisLeft()
         .scale(yScale);
+
+    // Update the existing y-axis
+    svg.select(".yAxis")
+        .transition()
+        .duration(2000)
+        .call(yAxis.scale(yScale));
+
 
     // Update the rectangles based on the series data
     // append new series data to the
