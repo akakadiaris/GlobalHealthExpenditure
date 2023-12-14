@@ -26,8 +26,6 @@ Collaborations with policymakers are essential to translate research findings in
 Furthermore, leveraging domain-specific knowledge will be instrumental in addressing data limitations and refining analytical approaches. Experts in health economics, public health, and healthcare administration can provide valuable input on interpreting trends, validating findings, and uncovering hidden dynamics within the data. This multidisciplinary collaboration will enhance the robustness of analyses, moving beyond broad trends to uncovering the specific drivers of health expenditure variations.
 
 
-This nuanced revelation prompts contemplation on the interplay between public and private healthcare sectors, sparking inquiries into the efficacy and inclusivity of diverse healthcare financing models.
-
 **Lessons Learned**
 
 Throughout this exploration, key lessons have emerged, highlighting the intricate interplay between quantitative analyses and the complexities of healthcare systems. The importance of contextual knowledge became evident, emphasizing the need to balance data-driven insights with qualitative understanding for a more holistic view. Additionally, the experience underscored the significance of interdisciplinary collaboration, demonstrating that insights from healthcare professionals and policymakers are essential to unlock a comprehensive understanding of global health expenditure trends. These lessons emphasize the dynamic and multifaceted nature of healthcare data analysis, encouraging a nuanced approach that combines quantitative rigor with contextual expertise.
