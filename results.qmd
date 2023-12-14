@@ -470,13 +470,13 @@ p <- ggplot(filtered_data, aes(x = the_per_cap_ppp_mean, y = location_name, fill
   geom_col(position = "dodge") +
   ggtitle("Total Mean Health Spending by Country in 2019") +
   ylab("Country") +
-  xlab("Total Mean Health Spending") +
+  xlab("Total Mean Health Spending per Person") +
   facet_wrap(~continent, scales = "free_y", ncol=2) +  # Adjust facet_wrap for horizontal bar graph
   theme_minimal() +
   theme(axis.text.y = element_text(angle = 0, hjust = 1))  # Adjust axis text for better readability
 
 p_plotly <- ggplotly(p) %>%
-  layout(legend = list(orientation = "h"),
+  layout(legend = list(orientation = "h",x = 0.1, y = -0.05),
          title = "",
          height = 1600) # Increase bottom and right margins
 p_plotly

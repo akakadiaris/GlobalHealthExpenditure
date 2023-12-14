@@ -6,7 +6,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 130vh;
+      height: 200vh;
       margin: 0;
       margin-left: 20px; /* Adjust the left margin as needed */
       overflow: auto;

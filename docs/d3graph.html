@@ -161,12 +161,47 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <style>
-  * {
-    font-family: sans-serif;
-  }
-</style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 200vh;
+      margin: 0;
+      margin-left: 20px; /* Adjust the left margin as needed */
+      overflow: auto;
+    }
+
+    #plot {
+      margin-top: 50px;
+    }
+    
+    #content {
+            max-width: 800px;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+  </style>
+<div>
+<h5 class="anchored">
+Select your region of interest:
+</h5>
+<p>
+</p>
+<!-- Initialize a select button -->
+<select id="selectButton"></select>
+<p>
+</p>
+<!-- Create a div where the graph will take place -->
 <div id="plot">
 
+</div>
+</div>
+<div id="content">
+<p>
+</p><p>The presented graph illustrates the trends in health expenditure from 1995 to 2019, focusing on three key variables: Government Health Spending per person (in constant 2021 United States dollars), Prepaid Private Health Spending per person (in constant 2021 United States dollars), and Out-of-pocket Health Spending per person (in constant 2021 United States dollars). The graph employs a color-coded scheme, with government spending depicted in green, out-of-pocket spending in orange, and prepaid private spending in purple. Stacked bar charts provide a visual representation of how these financing sources contribute to overall health expenditure over the specified years.</p>
+To enhance your analysis, a dropdown menu is available for selecting a specific region of interest, allowing for a more focused examination of health spending patterns in a particular geographic area.
+<p></p>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
 <script src="scripts/myscript.js"></script>
