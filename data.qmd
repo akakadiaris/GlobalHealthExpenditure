@@ -61,11 +61,11 @@ In this segment, our central focus is to present a nuanced understanding of the 
 
 As a whole, the data seems to be very clean. Upon thorough scrutiny of the data set, it becomes apparent that a singular column, the column titled "iso3," has missing data. This column had 100 missing values, while all the other columns had no missing information.
 
-![](missing.jpg){width="65%"}
+![](other_files/missing.jpg){width="65%"}
 
 These missing values, however, are not indicative of a flaw or oversight but rather a deliberate design choice in alignment with the dataset's prescribed structure.The "iso3" column serves as a repository for three-letter country codes, crucial for country-specific identification. Upon closer inspection, it is discernible that certain rows within this column intentionally lack values. The rows that have missing is03 values correspond to values High income, Low income, Lower-middle income, and Upper-middle income in "location_name" column. This intentional omission is justified by consulting the dataset's documentation, where it is explicitly stated that these specific entries do not correspond to any particular country.
 
-![](datadocumentation.jpg){width="65%"}
+![](other_files/datadocumentation.jpg){width="65%"}
 
 Instead, these instances are intended to encapsulate broader, non-country-specific information or aggregates that do not require a specific country code. In essence, the intentional missing values in the "iso3" column serve as placeholders for entries that transcend the bounds of individual countries, reflecting a nuanced data structure designed to accommodate diverse information categories within the dataset.
 
@@ -109,8 +109,8 @@ dah_per_gdp_upper 2537
 
 Below are two bar graphs with this information illustrated.
 
-![](dash.jpg){width="100%"}
-![](zero.jpg){width="100%"}
+![](other_files/dash.jpg){width="100%"}
+![](other_files/zero.jpg){width="100%"}
 
 Our exploration into the dataset revealed a notable presence of missing values, primarily indicated by either a dash ("-") or a zero (0). To systematically address this issue, we adopted a meticulous approach wherein we examined the consistency of missing values for each country across different years. Remarkably, we observed variations in the extent of missing data for certain countries, leading us to recognize the importance of treating missing values on a need-to-know basis.
 

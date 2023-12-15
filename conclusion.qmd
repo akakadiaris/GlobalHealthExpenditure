@@ -2,7 +2,7 @@
 
 **Main Takeaways** 
 
-Our exploration of global health expenditure yields insights into the financial landscape of healthcare worldwide. One prominent takeaway is the consistent dominance of Government Health Spending as a primary funding source across continents. This underscores the pivotal role of public investment in shaping the overall health expenditure trajectory. Governments remain key players in ensuring the accessibility and sustainability of healthcare services globally.
+Our exploration of global health expenditure yields insights into the financial landscape of healthcare worldwide. One prominent takeaway is the consistent dominance of Government Health Spending as a primary funding source across continents. This underscores the pivotal role of public investment in shaping the overall health expenditure trajectory. Governments remain key players in ensuring the accessibility and sustainability of healthcare services globally. To that point, throughout all the visuals presented, it is important to note that there is a constant increase in global health expenditure that points to a consistent commitment to enhancing healthcare services and public well-being on a global scale.
 
 Europe and North America emerge as regions with higher median health spending, indicating a greater commitment to healthcare financing. The United States, in particular, stands out as an outlier with the highest health expenditure, illustrating the considerable variation even within regions. The dispersion in spending highlights the diversity of healthcare systems, economic capacities, and policy approaches.
 
@@ -10,9 +10,9 @@ Another notable observation is the relatively lower health spending in Sub-Sahar
 
 **Limitations**
 
-While our exploration provides valuable insights into global health expenditure, it is essential to acknowledge certain limitations that stem from the absence of domain knowledge and potential challenges within the dataset. One notable limitation lies in our interpretation of the data without detailed domain expertise. The intricate nuances of each country's healthcare system, socio-economic context, and specific policy landscapes can significantly impact health spending patterns. Without a comprehensive understanding of these contextual factors, our analysis may overlook subtle intricacies and potentially misinterpret certain trends.
+While our exploration provides valuable insights into global health expenditure, it is essential to acknowledge certain limitations stemming from the absence of domain knowledge and access to further information explaining the underlying reasons for observed changes. One notable limitation lies in our interpretation of the data without detailed domain expertise. The intricate nuances of each country's healthcare system, socio-economic context, and specific policy landscapes can significantly impact health spending patterns. Without a comprehensive understanding of these contextual factors, our analysis may overlook subtle intricacies and potentially misinterpret certain trends.
 
-Additionally, the presence of outliers and anomalies in the data, particularly evident in the Cleveland dot plot, underscores the importance of scrutinizing data quality. Unusual data points may be indicative of discrepancies, errors, or unique country-specific circumstances that are not readily apparent without in-depth knowledge of each country's healthcare landscape.
+Moreover, the presence of outliers and anomalies in the data, particularly evident in the Cleveland dot plot, underscores the importance of scrutinizing data quality. Unusual data points may be indicative of discrepancies, errors, or unique country-specific circumstances that are not readily apparent without in-depth knowledge of each country's healthcare landscape.
 
 
 **Future Directions**

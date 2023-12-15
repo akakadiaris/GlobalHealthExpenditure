@@ -1,13 +1,12 @@
 # Results
 
-The exploration of global health expenditure spanning the years 1995 to 2019, using the extensive dataset from the Institute for Health Metrics and Evaluation (IHME), has uncovered intricate financial trends. The visualizations showcased below illuminate key patterns, shifts, and disparities in health expenditure over the past two and a half decades. These upcoming visualizations include a detailed examination in global health expenditure on a global scale.These visuals not only capture the scale of financial investments in health across regions and nations but also spotlight the evolving priorities and challenges within the global health ecosystem. Whether examining trajectories of total expenditure or dissecting spending by specific expenditure sources, our visualizations aim to provide a comprehensive understanding of the economic dimensions of global health expenditure during the time period specified.
+The exploration of global health expenditure spanning the years 1995 to 2019, using the extensive dataset from the Institute for Health Metrics and Evaluation (IHME), has uncovered intricate financial trends. The visualizations showcased below illuminate key patterns, shifts, and disparities in health expenditure over the past two and a half decades. These visuals not only capture the scale of financial investments in health across regions and nations but also spotlight the evolving priorities and challenges within the global health expenditure ecosystem. Whether examining trajectories of total expenditure or dissecting spending by specific expenditure sources, our visualizations aim to provide a comprehensive understanding of the economic dimensions of global health expenditure for the past two decades. 
 
 Throughout our analysis, unless explicitly stated, we consistently employed the average value per capita as a key metric. Our exploration encompassed not only overall health spending for each country but also delved into three distinct financing sources: Global Health Expenditure (GHES), Out-of-Pocket Health Expenditures (OOP), and Prepaid Private Health Expenditures (PPP). To narrow our focus, we strategically examined three primary groupings of countries: those classified under continents, the overarching category of individual countries, and income-based grouped countries. This multifaceted approach allowed us to uncover and present insights at various scales, providing a comprehensive understanding of global health expenditure dynamics. Moreover, several graphics feature an interactive element, allowing users to hover over data points and access additional information pertinent to the displayed data.
 
 **Analyzing Trends between 1995 and 2019 on a Macro Level**
 
-The comprehensive analysis of the provided graph below reveals several intriguing trends in global health expenditure. Notably, the data suggests a general uptrend in Government Health Expenditure across diverse regions, outpacing other financing sources during this timeframe. In contrast, Prepaid Private Health Spending consistently emerges as the lowest among the various financing sources across all country groupings in the dataset.
-
+To start off, we wanted to start with a macro-level analysis, so we delve into the evolving trends in global health expenditure from 1995 to 2019 based on the country groupings that were provided in the dataset and shown in the graph. 
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=13, fig.height=10}
 # Load necessary libraries
@@ -18,7 +17,7 @@ library(plotly)
 library(readr)
 
 # Read data from CSV
-data <- read_csv("Code/data.csv")
+data <- read_csv("other_files/data.csv")
 
 # Convert 'year' to a factor to ensure proper ordering on the x-axis
 data$year <- as.factor(data$year)
@@ -69,13 +68,13 @@ plotly_object <- ggplotly(plot) %>%
 plotly_object
 ```
 
-Delving into specific regional dynamics, Central Europe, Eastern Europe, and Central Asia exhibit an overall increase in all financing sources. Notably, Government Health Spending and Out-of-Pocket Health Spending experienced remarkable increments, overtaking the trajectory of Prepaid Private Health Spending. This dynamic is indicative of a robust and multifaceted approach to healthcare financing within this region, where both public and individual financial commitments have significantly burgeoned.
+Central Europe, Eastern Europe, and Central Asia exhibit an overall increase in all financing sources. Notably, Government Health Spending and Out-of-Pocket Health Spending experienced significance increases, overtaking the trajectory of Prepaid Private Health Spending. This dynamic is indicative of a robust and multifaceted approach to healthcare financing within this region, where both public and individual financial commitments have significantly grown.
 
-In Latin American and Caribbean countries, all three expenditure categories witness an upward trajectory. However, the nuanced trajectory of Out-of-Pocket spending introduces a layer of complexity. The period until 2009 witnessed an ascent, followed by a subsequent decline. This peculiarity warrants a deeper investigation into the underlying factors, potentially unveiling shifts in healthcare policies, societal expectations, or economic fluctuations that have sculpted this distinctive pattern.
+In Latin American and Caribbean countries, all three expenditure categories witness an upward trajectory. However, the trajectory of Out-of-Pocket spending introduces a layer of complexity. The period until 2009 witnessed an ascent, followed by a subsequent decline. This peculiarity warrants a deeper investigation into the underlying factors, potentially unveiling shifts in healthcare policies, societal expectations, or economic fluctuations that have sculpted this distinctive pattern.
 
-Similarly, North African and Middle Eastern countries showcase an upward trend in overall health expenditure, with Out-of-Pocket spending experiencing fluctuations, including a dip in 2012 and 2013. This distinct pattern deviates from the general trajectory observed in other regions, beckoning exploration into geopolitical and economic events that may have influenced the healthcare spending landscape within this region.
+Similarly, North African and Middle Eastern countries showcase an upward trend in overall health expenditure, with Out-of-Pocket spending experiencing fluctuations, including a dip in 2012 and 2013. This distinct pattern deviates from the general trajectory observed in other regions, prompting further exploration into geopolitical and economic events that may have influenced the healthcare spending landscape within this region.
 
-Intriguingly, South Asian countries uniquely feature Out-of-Pocket as the primary financing source, and while witnessing an ascent from 1995 to 2015, there is a gradual decline post-2015. This deviation from the norm invites contemplation on the region's evolving economic dynamics and healthcare policy paradigms.
+In general, South Asian countries uniquely feature Out-of-Pocket as the primary financing source, and while witnessing an ascent from 1995 to 2015, there is a gradual decline post-2015. This deviation from the norm invites contemplation on the region's evolving economic dynamics and healthcare policy paradigms.
 
 Next, the graph below explores each grouping of health expenditure and shows how the spending for each region has changed from 1995 to 2019. Across the spectrum of countries and regions, the overarching trend delineates the ascendancy of Government Health Spending, marking a possible steadfast commitment to bolster public health initiatives. The discernible increase in this financing source could be indicative of a global prioritization of citizens' well-being. Prepaid Private Health Spending consistently emerges as the least significant contributor across all country groupings, emphasizing its comparatively muted role in the grand scheme of health expenditure. 
 
@@ -87,7 +86,7 @@ library(tidyr)
 library(plotly)
 
 # Read data from CSV
-data <- read_csv("Code/data.csv")
+data <- read_csv("other_files/data.csv")
 
 # Convert 'year' to a factor to ensure proper ordering on the x-axis
 data$year <- as.factor(data$year)
@@ -141,15 +140,15 @@ plotly_object
 
 ```
 
-Sub-Saharan Africa and South Asia consistently register as the groups of countries with the lowest health expenditure across all financing sources. This discovery could prompt contemplation on the intricate socio-economic factors underlying these regions' healthcare ecosystems, bringing forth questions about resource allocation, accessibility, and disparities in healthcare infrastructure.
+Sub-Saharan Africa and South Asia consistently register as the groups of countries with the lowest health expenditure across all financing expenditures. This discovery could prompt contemplation on the intricate socioeconomic factors underlying these regions' healthcare ecosystems, bringing forth questions about resource allocation, accessibility, and disparities in healthcare infrastructure.
 
 Latin America and the Caribbean are a consistent front-runner, boasting the highest or one of the highest spending levels in each financing source. This observation prompts exploration into the driving forces propelling this sustained commitment, whether rooted in economic prosperity, robust healthcare policies, or societal expectations.
 
-Intriguingly, the most substantial surge in Government Health Spending and Out-of-Pocket financing unveils itself in Southeast Asian, East Asian, and Oceania countries. This dynamic shift not only underscores a strategic reorientation of financial commitments but also beckons a closer examination of the region-specific factors catalyzing this pronounced ascent. Delving into these disparities opens avenues for a nuanced understanding of the diverse trajectories shaping healthcare financing on a global scale.
+The most substantial surge in Government Health Spending and Out-of-Pocket financing was present in Southeast Asian, East Asian, and Oceania countries. This dynamic shift not only underscores a strategic reorientation of financial commitments but also prompts a closer examination of the region-specific factors catalyzing this pronounced ascent. Delving into these disparities opens avenues for a nuanced understanding of the diverse trajectories shaping healthcare financing on a global scale.
 
 **Regional/Income Disparities**
 
-Next, we want to explore the intricate patterns of global health expenditure per continent (manually assigned), offering a comprehensive exploration of the diverse economic landscapes shaping healthcare financing strategies from 1995 to 2019.
+Next, we want to explore the intricate patterns of global health expenditure per continent (manually assigned and can be found in DataCleanup.qmd file), offering a comprehensive exploration of the diverse economic landscapes shaping healthcare financing strategies from 1995 to 2019.
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=13, fig.height=15}
 # Load necessary libraries
@@ -189,11 +188,11 @@ ggplot_object
 
 
 ```
-Diving into a comprehensive examination, we meticulously scrutinized individual country data, orchestrating them into coherent continental clusters. The resultant graph casts a revealing spotlight on diverse patterns in health expenditure across continents. What constantly persists is that the government remains the primary financier accross the global, regardless of year.
+The graph above casts a revealing spotlight on diverse patterns in health expenditure across continents. What constantly persists is that the government remains the primary financier accross the global, regardless of year.
 
-A closer inspection lays bare significant contrasts in spending levels among continents. Europe, North America, and Oceania emerge as exhibiting the highest health expenditure, while Africa, in contrast, grapples with a health spending allocation nearly half of the global average. This divergence beckons a probing exploration into the underlying factors propelling such pronounced variations, invoking considerations of economic prowess, healthcare infrastructure, and socio-economic determinants unique to each continent.
+Upon closer examination, notable differences in spending levels among continents become evident. Europe, North America, and Oceania emerge as exhibiting the highest health expenditure, while Africa, in contrast, grapples with a health spending allocation nearly half of the global average. This divergence opens the floor to further exploration into the underlying factors behind such pronounced variations, invoking considerations of economic prowess, healthcare infrastructure, and socio-economic determinants unique to each continent.
 
-With this broad lens on health expenditure, we embark on a nuanced exploration of income class differentials. The subsequent graph encapsulates the average values across all years, facilitating in understanding the relationship between income class and health expenditure. This focused endeavor promises a granular understanding of how economic strata influence healthcare financing dynamics, unraveling layers of insights pivotal for informed policy decisions and global health management.
+With this broad lens on health expenditure, we then wanted to explore income class differentials. The subsequent graph encapsulates the average values across all years, facilitating in understanding the relationship between income class and health expenditure.
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=13, fig.height=10}
 # Load necessary libraries
@@ -247,14 +246,9 @@ p_plotly <- ggplotly(p) %>%
 # Print the plotly object
 p_plotly
 ```
+The visual provides a compelling insight into the dynamics of health expenditure as countries ascend through income classes. Notably, it reveals a discernible trend where government health expenditure and private health expenditures exhibit a positive correlation with income class. As countries progress into higher income classes, there is an increase in both government health expenditure and per capita PPP. This phenomenon suggests that wealthier nations tend to allocate more financial resources to their public health systems, potentially reflecting a commitment to providing comprehensive healthcare services supported by increased fiscal capacity. Conversely, a noteworthy observation is the inverse relationship seen in out-of-pocket (OOP) health expenditure. The visual illustrates a consistent decrease in OOP expenditures as countries move up the income ladder. This decline in OOP expenditure is significant, as it indicates a reduced reliance on individual OOP contributions for healthcare expenses in wealthier nations. This shift may signify enhanced social protection, improved access to health insurance, and greater government responsibility for financing healthcare services, contributing to a more equitable and sustainable healthcare system.This nuanced understanding can inform global health policy discussions and strategies aimed at fostering more inclusive and robust healthcare systems worldwide.
 
-The visual provides a compelling insight into the dynamics of health expenditure as countries ascend through income classes. Notably, it reveals a discernible trend where government health expenditure and per capita purchasing power parity (PPP) exhibit a positive correlation with income class. As countries progress into higher income classes, there is an increase in both government health expenditure and per capita PPP. This phenomenon suggests that wealthier nations tend to allocate more financial resources to their public health systems, potentially reflecting a commitment to providing comprehensive healthcare services supported by increased fiscal capacity.
-
-Conversely, a noteworthy observation is the inverse relationship seen in out-of-pocket (OOP) health spending. The visual illustrates a consistent decrease in OOP expenditures as countries move up the income ladder. This decline in OOP spending is significant, as it indicates a reduced reliance on individual out-of-pocket contributions for healthcare expenses in wealthier nations. This shift may signify enhanced social protection, improved access to health insurance, and greater government responsibility for financing healthcare services, contributing to a more equitable and sustainable healthcare system.
-
-In summary, the visual underscores the intricate interplay between income levels and health expenditure components, highlighting the tendency for countries with higher income classes to allocate greater resources through government spending and reduce the burden on individuals through a decline in out-of-pocket expenses. This nuanced understanding can inform global health policy discussions and strategies aimed at fostering more inclusive and robust healthcare systems worldwide.
-
-Based on the previous graphs, we saw that South Asia and Sub-Saharan Africa countries seem to spend significantly less per person on health spending, which is also what is observed in this graph, in terms of total health expenditure per person. It seems that there was also not a significant increase in spending over time for those two groups of countries. Based on this graph, it can also be observed that the two largest increase in total health spending is in Southeast Asian, East Asian, and Oceanian countries and Central European, Eastern European, and Central Asian countries. 
+Based on the previous visualizations, we saw that South Asia and Sub-Saharan Africa countries seem to spend significantly less per person on health spending, which is also what is observed in this graph, in terms of total health expenditure per person. It seems that there was also not a significant increase in spending over time for those two groups of countries. Based on this graph, it can also be observed that the two largest increase in total health spending is in Southeast Asian, East Asian, and Oceanian countries and Central European, Eastern European, and Central Asian countries. 
 
 In summary, the visualizations offer a comprehensive exploration of health expenditure dynamics from 1995 to 2019. The initial graph underscores a consistent upward trajectory in Government Health spending, outpacing other sources, with Prepaid Private Health Spending consistently ranking lowest. Region-specific analyses reveal distinct patterns, such as significant increases in Central Europe, Eastern Europe, and Central Asia, while South Asian countries uniquely rely on Out of Pocket financing. The second graph highlights persistent variations, with Sub-Saharan Africa and South Asia consistently exhibiting the lowest spending and Latin America and the Caribbean often showing the highest across all financing types. Notably, Southeast Asian, East Asian, and Oceanian countries experience substantial increases in Government Health Spending and Out of Pocket financing. Lastly, the third graph reaffirms lower total health expenditure per person in South Asia and Sub-Saharan Africa, suggesting limited growth. Conversely, Southeast Asian, East Asian, and Oceanian countries, along with Central European, Eastern European, and Central Asian countries, witness significant increases, spotlighting regional disparities in global health expenditure trends.
 
@@ -264,7 +258,7 @@ By zeroing in on the 2019 data of global health expenditure, we gather informati
 
 This exploration of the financial landscape in 2019 not only discerns immediate trends but also acts as a strategic compass for anticipating future trajectories. These next visualizations offer a snapshot of where global health expenditure is currently, fostering a deeper understanding of the intricate dance between financial resources and healthcare outcomes.
 
-Building on this groundwork, the introduction of a parallel coordinates plot for the year 2019 adds an extra layer of analysis. This visual narrative encapsulates the interplay between Government Health Spending, Out of Pocket Health Spending, and Prepaid Private Health Spending. The plot serves as a window, allowing stakeholders to traverse the intricate relationships and trends within global health expenditure, fostering a holistic perspective crucial for strategic planning and responsive policymaking.
+Taking a look at a parallel coordinates plot for the year 2019 adds an extra layer of analysis. This visual narrative encapsulates the interplay between Government Health Spending, Out of Pocket Health Expenditure, and Prepaid Private Health Expenditure, as well as Total Health Expenditure. 
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=10, fig.height=8}
 # Assuming your data frame is named 'data'
@@ -297,7 +291,7 @@ plot + scale_color_brewer(palette = "Set3") +
 
 Examining the parallel coordinates plot reveals distinctive patterns within the three major categories of global health expenditure in 2019. Notably, Government Health Spending exhibits considerable variation, signifying diverse fiscal approaches among nations. In contrast, Private Health Spending and Out Of Pocket Health Spending showcase more consistent levels, with minimal variability despite a few outliers. This suggests a relative stability in financial allocations for these specific health expenditure types. The overarching dispersion observed in total health spending reiterates the wide-ranging financial commitments across nations, echoing the complexities of global healthcare financing.
 
-Transitioning to the Cleveland dot plot introduces a visually compelling representation of health expenditure levels across a multitude of countries. This visualization serves as an accessible and informative tool, offering a snapshot of the distribution of healthcare expenditure within each country.
+Transitioning to the Cleveland dot plot introduces a representation of health expenditure levels across a multitude of countries. This visualization serves as an accessible and informative tool, offering a snapshot of the distribution of healthcare expenditure within each country.
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=10, fig.height=30}
 library(readr)
@@ -347,11 +341,11 @@ ggplot(pivot_longer_data, aes(x = Health_Expenditure, y = fct_reorder(location_n
        y = "Countries", 
        fill = "Spending Source") 
 ```
-The insights derived from the Cleveland dot plot are crucial for unraveling the intricate dynamics of global health expenditure. Notably, a trend emerges as countries with elevated total health spending consistently exhibit substantial contributions from Government Health Spending. This correlation suggests a direct relationship between total health expenditure and the magnitude of government financial allocations, emphasizing the pivotal role of public funding in driving higher overall health spending.
+The insights derived from the cleveland dot plot are crucial for unraveling the intricate dynamics of global health expenditure. Notably, a trend emerges as countries with elevated total health spending consistently exhibit substantial contributions from Government Health Spending. This correlation suggests a direct relationship between total health expenditure and the magnitude of government financial allocations, emphasizing the pivotal role of public funding in driving higher overall health spending.
 
 However, as the total health expenditure decreases, an intriguing divergence emerges, indicating increased variability in the highest expenditure category. This nuanced observation prompts a closer examination of the contributing factors to health spending variations in countries with lower overall financial commitments. Such disparities underscore the multifaceted nature of global health financing, where the determinants of expenditure become more diverse as the total spending decreases.
 
-Despite the prevailing pattern of Government Health Spending dominating the highest expenditure category for a significant number of countries, anomalies surface in the data. In specific instances, Out-Of-Pocket health spending surpasses government allocations, challenging the conventional narrative. This anomaly prompts an exploration into the unique circumstances and contributing factors behind these deviations, unveiling potential outliers or outliers' clusters. This detailed analysis serves as a foundation for a more nuanced understanding of the complexities surrounding health expenditure distribution and identifies countries warranting further investigation to unravel the intricacies of their financial health landscape.
+Despite the prevailing pattern of Government Health Expenditure dominating the highest expenditure category for a significant number of countries, anomalies surface in the data. In specific instances, Out-Of-Pocket health spending surpasses government allocations, challenging the conventional narrative. This anomaly prompts an exploration into the unique circumstances and contributing factors behind these deviations, unveiling potential outliers or outliers' clusters. This detailed analysis serves as a foundation for a more nuanced understanding of the complexities surrounding health expenditure distribution and identifies countries warranting further investigation to unravel the intricacies of their financial health landscape.
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=13, fig.height=10}
 library(plotly)
@@ -374,9 +368,10 @@ plot_ly(bar_plot_data, x = ~fct_reorder(continent, Count), y = ~Count, type = "b
          barmode = "stack")
 ```
 
-The revelations drawn from the bar chart offer a compelling narrative about the distinct financial landscapes of various continents, particularly in Africa and Asia. The notable occurrence of countries in these regions where Out-Of-Pocket health spending surpasses government allocations signifies a distinctive pattern. The prevalence of this phenomenon suggests a unique financial structure, possibly influenced by economic, cultural, or systemic factors inherent to these continents.
+The bar graph provides a nuanced perspective on the occurrence of countries where Out-Of-Pocket health spending surpasses government allocations, highlighting that this phenomenon, while not highly prevalent, is discernible across all continents except for South America. This raises intriguing questions about the underlying factors contributing to such variations, necessitating the expertise of regional specialists to provide comprehensive insights. Engaging domain experts would be instrumental in unraveling the complex interplay of economic, cultural, and systemic dynamics that might underpin these unique financing patterns.
 
-Shifting focus to the Cleveland dot plot, the observation of countries with Prepaid Private Health Spending (PPP) registering as 0 unveils another layer of complexity in the global health expenditure landscape. This anomaly prompts a specific inquiry into the continent that exhibits a predominant trend of zero PPP values. By conducting a continent-wise analysis, we aim to unravel the underlying factors influencing this distinctive pattern and discern whether it is a systemic issue, data reporting discrepancy, or indicative of a unique healthcare financing model prevalent in certain regions.
+Transitioning to the boxplot depicting the distribution of health spending per person by continent for each year, this visualization serves as a comprehensive narrative of the diverse financial landscapes in healthcare across the globe. The boxplot captures the variability, trends, and central tendencies in health expenditure over the years, offering a visual journey through the dynamic nature of healthcare financing on a continent-wise basis. This visualization acts as a valuable tool for policymakers, researchers, and stakeholders to glean insights into the intricate patterns of health spending and make informed decisions that cater to the specific needs and challenges of each continent.
+
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=13, fig.height=10}
 library(plotly)
@@ -399,9 +394,9 @@ plot_ly(bar_plot_data, x = ~fct_reorder(continent, Count), y = ~Count, type = "b
          barmode = "stack")
 ```
 
-The bar graph provides a nuanced perspective on the occurrence of countries where Out-Of-Pocket health spending surpasses government allocations, highlighting that this phenomenon, while not highly prevalent, is discernible across all continents except for South America. This raises intriguing questions about the underlying factors contributing to such variations, necessitating the expertise of regional specialists to provide comprehensive insights. Engaging domain experts would be instrumental in unraveling the complex interplay of economic, cultural, and systemic dynamics that might underpin these unique financing patterns.
+The revelations drawn from the bar chart offer a compelling narrative about the distinct financial landscapes of various continents, particularly in Africa and Asia. The notable occurrence of countries in these regions where Out-Of-Pocket health spending surpasses government allocations signifies a distinctive pattern. The prevalence of this phenomenon suggests a unique financial structure, possibly influenced by economic, cultural, or systemic factors inherent to these continents.
 
-Transitioning to the boxplot depicting the distribution of health spending per person by continent for each year, this visualization serves as a comprehensive narrative of the diverse financial landscapes in healthcare across the globe. The boxplot captures the variability, trends, and central tendencies in health expenditure over the years, offering a visual journey through the dynamic nature of healthcare financing on a continent-wise basis. This visualization acts as a valuable tool for policymakers, researchers, and stakeholders to glean insights into the intricate patterns of health spending and make informed decisions that cater to the specific needs and challenges of each continent.
+Shifting focus to the Cleveland dot plot, the observation of countries with Prepaid Private Health Spending (PPP) registering as 0 unveils another layer of complexity in the global health expenditure landscape. This anomaly prompts a specific inquiry into the continent that exhibits a predominant trend of zero PPP values.
 
 ```{r, warning=FALSE, error=FALSE, message=FALSE, fig.width=13, fig.height=16}
 # Load necessary libraries

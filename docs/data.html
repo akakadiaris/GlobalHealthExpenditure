@@ -202,9 +202,9 @@ ul.task-list li input[type="checkbox"] {
 <section id="missing-value-analysis" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
 <p>As a whole, the data seems to be very clean. Upon thorough scrutiny of the data set, it becomes apparent that a singular column, the column titled “iso3,” has missing data. This column had 100 missing values, while all the other columns had no missing information.</p>
-<p><img src="missing.jpg" class="img-fluid" style="width:65.0%"></p>
+<p><img src="other_files/missing.jpg" class="img-fluid" style="width:65.0%"></p>
 <p>These missing values, however, are not indicative of a flaw or oversight but rather a deliberate design choice in alignment with the dataset’s prescribed structure.The “iso3” column serves as a repository for three-letter country codes, crucial for country-specific identification. Upon closer inspection, it is discernible that certain rows within this column intentionally lack values. The rows that have missing is03 values correspond to values High income, Low income, Lower-middle income, and Upper-middle income in “location_name” column. This intentional omission is justified by consulting the dataset’s documentation, where it is explicitly stated that these specific entries do not correspond to any particular country.</p>
-<p><img src="datadocumentation.jpg" class="img-fluid" style="width:65.0%"></p>
+<p><img src="other_files/datadocumentation.jpg" class="img-fluid" style="width:65.0%"></p>
 <p>Instead, these instances are intended to encapsulate broader, non-country-specific information or aggregates that do not require a specific country code. In essence, the intentional missing values in the “iso3” column serve as placeholders for entries that transcend the bounds of individual countries, reflecting a nuanced data structure designed to accommodate diverse information categories within the dataset.</p>
 <p>That being said, after taking a closer look at the data, we noticed that there are “-” or O inserted as some values.</p>
 <p>Those columns that have missing values and how many there are are:</p>
@@ -241,7 +241,7 @@ dah_per_gdp_mean 2555<br>
 dah_per_gdp_lower 2591<br>
 dah_per_gdp_upper 2537</p>
 <p>Below are two bar graphs with this information illustrated.</p>
-<p><img src="dash.jpg" class="img-fluid" style="width:100.0%"> <img src="zero.jpg" class="img-fluid" style="width:100.0%"></p>
+<p><img src="other_files/dash.jpg" class="img-fluid" style="width:100.0%"> <img src="other_files/zero.jpg" class="img-fluid" style="width:100.0%"></p>
 <p>Our exploration into the dataset revealed a notable presence of missing values, primarily indicated by either a dash (“-”) or a zero (0). To systematically address this issue, we adopted a meticulous approach wherein we examined the consistency of missing values for each country across different years. Remarkably, we observed variations in the extent of missing data for certain countries, leading us to recognize the importance of treating missing values on a need-to-know basis.</p>
 <p>Recognizing the significance of preserving data integrity, we opted for a cautious strategy rather than employing imputation techniques. Given the structure of the dataset, with each country represented by 25 rows (corresponding to years), we carefully considered the potential implications of missing data. Instead of imputing values, we made a strategic decision to convert missing values, represented by dashes (“-”) or zeros, into zeros. This decision was grounded in the understanding that genuine health expenditure values for any country are unlikely to be zero and eliminates the risk of misinterpretation associated with imputed values. By adopting this approach, we aimed to ensure transparency and accuracy in our analyses while mitigating the impact of missing values on the overall exploration.</p>
 
